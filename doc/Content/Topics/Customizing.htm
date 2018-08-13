@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="1439" MadCap:lastWidth="1066" xml:lang="en">
+    <head>
+        <link href="../Resources/TableStyles/Standard.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1>Customizing and Distributing</h1>
+        <p>You can customize <MadCap:variable name="Var.FlareLint" /> and distribute your improvements. </p>
+        <p><MadCap:variable name="Var.FlareLint" /> is open source so you have full access to its source code. For example, you can add, modify, or delete rules. You can integrate with other tools. You can customize HTML output or generate reports in new formats. </p>
+        <p>To customize <MadCap:variable name="Var.FlareLint" />, you need knowledge of Python 3, HTML, and CSS. The source files for <MadCap:variable name="Var.FlareLint" /> and this guide are in the <code>src</code> folder, described in the following table:</p>
+        <table style="margin-left: 0;margin-right: auto;mc-table-style: url('../Resources/TableStyles/Standard.css');" class="TableStyle-Master" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">File or folder in <code>src</code></th>
+                    <th class="HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p><code><MadCap:variable name="Var.FlareLint" />.bat</code>
+                        </p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>Microsoft Windows batch file to invoke the Python interpreter with the Python <code>flarelint</code> module. </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p><code>README.txt</code> <![CDATA[ ]]></p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>Introductory text.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p><code>LICENSE.txt</code> <![CDATA[ ]]></p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>The full text of the Common Development and Distribution License Version 1.0 (CDDL-1.0).</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p><code>build.py</code> <![CDATA[ ]]></p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>Python module to build this user guide, build the Python <MadCap:variable name="Var.FlareLint" /> package, and bundle them into the <MadCap:variable name="Var.FlareLint" /> installer, <code><MadCap:variable name="Var.FlareLint" />.zip</code>.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p><code>setup.py</code> <![CDATA[ ]]></p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>Python module that specifies the parameters for building the Python&#160;<MadCap:variable name="Var.FlareLint" /> package.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p><code>doc</code> folder</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>MadCap Flare project for this user guide.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p><code>flarelint</code> folder</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>Source files for the Python <MadCap:variable name="Var.FlareLint" /> package. For more information on these files, see the comments in each file. </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1"><code>flarelint\rules</code> folder</td>
+                    <td class="BodyA-Column1-Body1">Source files for the default rules that <MadCap:variable name="Var.FlareLint" /> installs in your personal rules folder, <code><MadCap:variable name="Var.PersonalRuleFolder" /></code>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>To distribute <MadCap:variable name="Var.FlareLint" />, please follow the terms of the Common Development and Distribution License Version 1.0 (CDDL-1.0).</p>
+    </body>
+</html>

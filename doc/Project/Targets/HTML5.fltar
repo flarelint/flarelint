@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="1"
+  Comment=""
+  Type="WebHelp2"
+  Destinations=""
+  GlossaryTermConversion="marked"
+  ExcludeUnreferencedContent="true"
+  UseCustomTopicFileExtension="true"
+  CustomTopicFileExtension="html"
+  ReplaceSpacesWithUnderscores="true"
+  WarnOnImagesMissingAltText="false"
+  WarnOnEquationsMissingAltText="false"
+  WarnOnQrCodesMissingAltText="false"
+  WarnOnMissingTableCaption="false"
+  WarnOnMissingTableHeaderRows="true"
+  WarnOnMissingInputLabels="false"
+  WarnOnMissingIFrameNames="false"
+  DefaultUrl="/Content/Topics/Cover.htm"
+  OutputFile="index.html"
+  MasterPage="/Content/Resources/MasterPages/Master.flmsp"
+  TargetLanguage="en">
+  <PrintedOutput
+    CollapseMargins="true" />
+</CatapultTarget>

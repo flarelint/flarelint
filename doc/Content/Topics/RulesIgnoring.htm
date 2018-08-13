@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="1029" MadCap:lastWidth="1095">
+    <head>
+    </head>
+    <body>
+        <h1>Ignoring Rules</h1>
+        <p>You can specify which rules to ignore by removing them from your personal rule folder, <code><MadCap:variable name="Var.PersonalRuleFolder" /></code>. <MadCap:variable name="Var.FlareLint" /> applies only the rules that it finds in this folder and ignores all other rules on your computer.</p>
+        <p><span class="Admonishment">Warning: </span>Do not modify the contents of the rules folder in the <MadCap:variable name="Var.FlareLint" /> package. Modifying the installed package could prevent you from upgrading and uninstalling <MadCap:variable name="Var.FlareLint" />.</p>
+        <p class="Task">
+            <MadCap:toggler targets="ToIgnore">To specify which rules to ignore:
+</MadCap:toggler>
+        </p>
+        <ol MadCap:targetName="ToIgnore">
+            <li>
+                <p>Use <MadCap:variable name="Var.FlareLint" /> on any project. See <a href="Using.htm">Using</a>.</p>
+                <p>Running <MadCap:variable name="Var.FlareLint" /> ensures that, at a minimum, the default rules get installed in your personal rule folder.</p>
+            </li>
+            <li>
+                <p>Click the Windows Start button and in the search field, type <code><MadCap:variable name="Var.PersonalRuleFolder" /></code> then press Enter.</p>
+                <p>A Windows Explorer windows appears to display the contents of your personal rule folder.</p>
+            </li>
+            <li>
+                <p>Select the Python modules for the rules that you want <MadCap:variable name="Var.FlareLint"></MadCap:variable> to ignore.</p>
+            </li>
+            <li>
+                <p>Do one of the following:</p>
+                <ul>
+                    <li>To ignore the rules without deleting them, move them to a folder outside of your personal rules folder. For example, drag your selected files to your desktop.</li>
+                    <li>To delete your rules, press the Delete key.</li>
+                </ul>
+            </li>
+        </ol>
+    </body>
+</html>

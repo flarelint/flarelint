@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="2" MadCap:lastHeight="1009" MadCap:lastWidth="1147">
+    <head>
+    </head>
+    <body>
+        <h1>Managing Rules</h1>
+        <p><MadCap:variable name="Var.FlareLint" /> comes with a default set of rules. You might find that some are too general, too specific, or not relevant for your projects. Or you might want to confirm which rules <MadCap:variable name="Var.FlareLint" /> uses.</p>
+        <p>You can view which rules are active and specify which rules to apply. You can also define a standardized set of rules for your team.</p>
+        <p>The rules that <MadCap:variable name="Var.FlareLint" /> applies are  in your personal rule folder, <code><MadCap:variable name="Var.PersonalRuleFolder" /></code>. </p>
+        <p>The <code>%APPDATA%</code> variable is defined by Microsoft Windows to refer to your personal application data. For example, in Windows 7</p>
+        <p><code><MadCap:variable name="Var.PersonalRuleFolder" /></code>
+        </p>
+        <p>expands to </p>
+        <p><code>C:\Users\<em>username</em>\AppData\Roaming\FlareLint</code>
+        </p>
+        <p>where <em>username</em> is your user account on your computer. </p>
+        <p>The first time you run <MadCap:variable name="Var.FlareLint" />, it first checks to see if your personal rule folder exists. If it does not, <MadCap:variable name="Var.FlareLint" /> installs its default rules. The files for default rules have names starting with <code>flarelint_</code>. <MadCap:variable name="Var.FlareLint" /> does not delete, modify, or overwrite the rules that are already in your personal rule folder. Like any other rules, you can add and remove default rules to and from your personal folder.</p>
+        <p><span class="Admonishment">Tip:</span> Establish a fixed set of rules for all your team to use by storing their Python files in a shared folder. Require each team member to copy these files to each of their personal rule folders.</p>
+    </body>
+</html>

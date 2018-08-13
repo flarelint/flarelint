@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="[%=Var.FlareLint%] [%=Var.Version%] User Guide"
+    Link="/Content/Topics/Cover.htm"></TocEntry>
+  <TocEntry
+    Title="What's New"
+    Link="/Content/Topics/WhatsNew.htm" />
+  <TocEntry
+    Title="About"
+    Link="/Content/Topics/About.htm" />
+  <TocEntry
+    Title=" [%=Var.FlareLint%] and MadCap Analyzer"
+    Link="/Content/Topics/VersusAnalyzer.htm" />
+  <TocEntry
+    Title="System Requirements"
+    Link="/Content/Topics/SystemRequirements.htm" />
+  <TocEntry
+    Title="Installing"
+    Link="/Content/Topics/Installing.htm"></TocEntry>
+  <TocEntry
+    Title="Using"
+    Link="/Content/Topics/Using.htm" />
+  <TocEntry
+    Title="Reading a Report"
+    Link="/Content/Topics/ReadingReport.htm" />
+  <TocEntry
+    Title="Upgrading"
+    Link="/Content/Topics/Upgrading.htm" />
+  <TocEntry
+    Title="Uninstalling"
+    Link="/Content/Topics/Uninstalling.htm" />
+  <TocEntry
+    Title="Sending Feedback"
+    Link="/Content/Topics/Contributing.htm"></TocEntry>
+  <TocEntry
+    Title="Managing Rules"
+    Link="/Content/Topics/Rules.htm">
+    <TocEntry
+      Title="Ignoring Rules"
+      Link="/Content/Topics/RulesIgnoring.htm" />
+    <TocEntry
+      Title="Adding Rules"
+      Link="/Content/Topics/RulesAdding.htm" />
+    <TocEntry
+      Title="Defining a Standard Set of Rules"
+      Link="/Content/Topics/StandardRules.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Customizing and Distributing"
+    Link="/Content/Topics/Customizing.htm" />
+  <TocEntry
+    Title="Implementing and Modifying Rules"
+    Link="/Content/Topics/RulesCreating.htm" />
+  <TocEntry
+    Title="Credits"
+    Link="/Content/Topics/Credits.htm" />
+</CatapultToc>

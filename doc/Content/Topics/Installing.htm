@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="3246" MadCap:lastWidth="1095" xml:lang="en">
+    <head>
+    </head>
+    <body>
+        <h1>Installing</h1>
+        <p>Before using <MadCap:variable name="Var.FlareLint" /> for the first time, you need to install the Python programming language and the <MadCap:variable name="Var.FlareLint" /> package. </p>
+        <p>There are many variations of the Python installer to handle Python versions, host operating systems, and installation methods. But <MadCap:variable name="Var.FlareLint" /> requires the Python installer that meets these requirements:</p>
+        <ul>
+            <li>Python version 3 or later</li>
+            <li>latest release version, not an alpha or beta version, which have "a" or "b" at the end of the version number</li>
+            <li>the executable installer for Microsoft Windows, x86-64-bit</li>
+        </ul>
+        <p class="Task">
+            <MadCap:toggler targets="ToInstall">To install <MadCap:variable name="Var.FlareLint" />:</MadCap:toggler>
+        </p>
+        <ol MadCap:targetName="ToInstall">
+            <li>
+                <p>If you have not done so already, extract the contents of the <code><MadCap:variable name="Var.FlareLint" style="mc-tag-and-class: code;" />.zip</code> installer.</p>
+                <p><span class="Admonishment">Tip:</span>&#160;Unzip <code><MadCap:variable name="Var.FlareLint" style="mc-tag-and-class: code;" />.zip</code> into a folder on your desktop.</p>
+            </li>
+            <li>
+                <p>Find and download the correct installer for Python 3:</p>
+                <p><a href="https://www.python.org/downloads/" target="_blank">www.python.org/downloads</a>
+                </p>
+                <p><span class="Admonishment">Tip:</span> The latest Python 3 release executable installer for Microsoft Windows 64-bit is the following: <a href="https://www.python.org/ftp/python/3.6.0/python-3.6.0-amd64.exe">www.python.org/ftp/python/3.6.0/python-3.6.0-amd64.exe</a>.</p>
+            </li>
+            <li>
+                <p>Double-click the installer for Python 3 for 64-bit Windows.</p>
+            </li>
+            <li>
+                <p>If Windows displays the Open File - Security Warning alert, click Run.</p>
+                <p>
+                    <img src="../Images/OpenFileSecurityWarning.png" />
+                </p>
+            </li>
+            <li>
+                <p>In the Python Setup wizard, enable the following options:</p>
+                <ul>
+                    <li>Install Launcher for All Users.</li>
+                    <li>Add Python <em>x</em> to PATH, where <em>x</em> is the version of Python you are installing.</li>
+                </ul>
+                <p>
+                    <img src="../Images/PythonSetup.png" />
+                </p>
+            </li>
+            <li>
+                <p>Click Install Now</p>
+            </li>
+            <li>
+                <p>If Windows displays the User Account Control alert, click Yes to continue.</p>
+                <p>The installation starts.</p>
+                <p>
+                    <img src="../Images/PythonProgress.png" />
+                </p>
+            </li>
+            <li>
+                <p>When the installer finishes, click Close.</p>
+                <p>
+                    <img src="../Images/PythonSuccess.png" />
+                </p>
+            </li>
+            <li>
+                <p>In the unzipped folder, double-click the <code><MadCap:variable name="Var.FlareLint" />.msi</code> file.</p>
+                <p>
+                    <img src="../Images/InstallStart.png" />
+                </p>
+            </li>
+            <li>
+                <p>In the Python <MadCap:variable name="Var.FlareLint" /> Setup wizard, enable Install Just for Me and click Next.</p>
+                <p>
+                    <img src="../Images/InstallChooseUsers.png" />
+                </p>
+            </li>
+            <li>
+                <p>Choose Python <em>x</em> from Registry, where <em>x</em> is the version of Python that you installed, and click Next.</p>
+                <p>
+                    <img src="../Images/InstallChoosePython.png" />
+                </p>
+                <p>The installation begins.</p>
+            </li>
+            <li>
+                <p>If the User Account Control alert appears to prompt you to allow the installer to change your computer, click Yes.</p>
+            </li>
+            <li>
+                <p>When the wizard is done, click Finish.</p>
+                <p>
+                    <img src="../Images/InstallFinish.png" />
+                </p>
+            </li>
+            <li>
+                <p>Copy <code><MadCap:variable name="Var.FlareLint" />.bat</code> and paste it into a folder that you can access easily.</p>
+                <p>For example, paste it onto your desktop.</p>
+                <p>
+                    <img src="../Images/FlareLintIcon.png" />
+                </p>
+            </li>
+            <li>
+                <p>Configure your personal rules directory, as needed. See <MadCap:xref href="Rules.htm">Managing Rules</MadCap:xref>.</p>
+            </li>
+        </ol>
+    </body>
+</html>

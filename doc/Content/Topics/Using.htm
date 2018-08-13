@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="1827" MadCap:lastWidth="1079" xml:lang="en" MadCap:ignoredWords="MadCap;TOCs;XML;flprj">
+    <head>
+    </head>
+    <body>
+        <h1>Using</h1>
+        <p><MadCap:variable name="Var.FlareLint" /> scans your MadCap Flare project for conformance to your rules. <MadCap:variable name="Var.FlareLint" /> <![CDATA[ ]]>scans topics, snippets, TOCs, and any other XML-based files in the project.</p>
+        <p>It then generates a report named <code><MadCap:variable name="Var.FlareLint" style="mc-tag-and-class: kbd;" />Report.html</code> and opens this report in your default web browser.</p>
+        <p>If there is an existing <MadCap:variable name="Var.FlareLint" /> report in your Flare project folder, <MadCap:variable name="Var.FlareLint" /> renames the older report by appending a number. You can copy, move, and delete reports without affecting your Flare project.</p>
+        <p>Before using <MadCap:variable name="Var.FlareLint" />, make sure you and your colleagues have saved changes before
+		running <MadCap:variable name="Var.FlareLint" />. <MadCap:variable name="Var.FlareLint" /> scans only saved
+			files. It cannot read unsaved changes. </p>
+        <p>To read the report later, look for it in the same folder as your project. The file name of the most recent report is <code><MadCap:variable name="Var.FlareLint" style="mc-tag-and-class: kbd;" />Report.html</code>.</p>
+        <p class="Task">
+            <MadCap:toggler targets="ToUse">To use <MadCap:variable name="Var.FlareLint" />:</MadCap:toggler>
+        </p>
+        <ol MadCap:targetName="ToUse">
+            <li>
+                <p>In Windows Explorer go to the folder for your Flare project.</p>
+            </li>
+            <li>
+                <p>Drag the project file (<code>.flprj</code>) and drop it on <code><MadCap:variable name="Var.FlareLint" />.bat</code>.</p>
+                <p>
+                    <img src="../Images/RunStart.png" />
+                </p>
+                <p><span class="Admonishment">Note:</span> Before dropping the project file, make sure the "Open with <MadCap:variable name="Var.FlareLint" />.bat" tool tip appears.</p>
+            </li>
+            <li>
+                <p>A Windows Security alert might appear. If so, click Yes.</p>
+                <p>A Windows command window opens to show progress then closes if there is no error.</p>
+                <p>
+                    <img src="../Images/RunProgress.png" />
+                </p>
+                <p><MadCap:variable name="Var.FlareLint" /> opens the report in your web browser.</p>
+            </li>
+            <li>
+                <p>If the follow appears in the command window, you must re-install Python. See <a href="Installing.htm">Installing</a>.</p>
+                <p>
+                    <img src="../Images/PythonNotRecognized.png" />
+                </p>
+                <p>The error message <code>'python' is not recognized...</code> means that you did not enable the Add Python <em>x</em> to PATH checkbox in the&#160;Python installer.</p>
+            </li>
+            <li>
+                <p>In your browser, read the report.</p>
+                <p>
+                    <img src="../Images/RunReport.png" />
+                </p>
+            </li>
+        </ol>
+    </body>
+</html>
