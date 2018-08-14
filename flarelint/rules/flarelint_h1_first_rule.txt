@@ -1,0 +1,12 @@
+rule: error
+
+extensions: htm html
+
+when: self h1 and not before h1
+
+test: self-position h1 0
+
+message:
+
+Topic body must start with an `h1` element. To fix, move the `h1`
+element to the top of the body.

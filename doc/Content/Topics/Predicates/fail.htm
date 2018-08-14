@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="2" MadCap:lastHeight="500" MadCap:lastWidth="1420">
+    <head>
+    </head>
+    <body>
+        <h1>fail</h1><pre xml:space="preserve">fail</pre>
+        <p>Always false.  It is useful for rule tests, when an element match is sufficient to determine that a rule is broken and needs no further tests.</p>
+        <p>For example, the following rule results in an error message when an <code>h3</code> element appears in a topic:</p><pre>rule: error
+extensions: htm html
+when: self h3
+test: fail
+message:
+Unsupported header. This level of header is not supported by our
+conventions or styles. To fix, place a subtopic in a separate
+file.</pre>
+    </body>
+</html>

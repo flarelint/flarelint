@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="678" MadCap:lastWidth="1099">
+    <head>
+    </head>
+    <body>
+        <h1><em>pov</em>-variable</h1><pre xml:space="preserve"><em>pov</em>-variable <em>tag</em> <em>set</em>.<em>name</em>
+<em>pov</em>-variable * <em>set</em>.<em>name</em></pre>
+        <p>True when an element contains at least one reference to a variable, <em>set.name</em>, false otherwise.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/wildcard.flsnp" />
+        <MadCap:snippetBlock src="../../Resources/Snippets/PointsOfView.flsnp" />
+        <p>The variable must use the format of variable set, period (.), then a name defined in the variable set. For example, to specify the system (set “System”) chapter number (name “ChapterNumber”) variable, use <code>System.ChapterNumber</code>.</p>
+        <p>For example:</p><pre xml:space="preserve">&lt;p&gt;
+  &lt;MadCap:variable name="Acme.CEO" /&gt; 
+  ran madly off in all directions.
+&lt;/p&gt;</pre>
+        <p>For the <code>p</code> element, the following gives true:</p><pre>self-p Acme.CEO</pre>
+    </body>
+</html>

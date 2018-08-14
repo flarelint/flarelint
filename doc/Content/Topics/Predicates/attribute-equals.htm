@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="721" MadCap:lastWidth="1394">
+    <head>
+    </head>
+    <body>
+        <h1><em>pov</em>-attribute-equals</h1><pre xml:space="preserve"><em>pov</em>-attribute-equals <em>tag</em> <em>name</em> "<em>text</em>"
+<em>pov</em>-attribute-equals * <em>name</em> "<em>text</em>"</pre>
+        <p>True when an element has an attribute <em>name</em> and its value is <em>text</em>. False when either an element does not have an attribute <em>name</em> or, if it does have this attribute, its value is not <em>text</em>. </p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/wildcard.flsnp" />
+        <MadCap:snippetBlock src="../../Resources/Snippets/PointsOfView.flsnp" />
+        <p>This predicate is case-sensitive. Leading and ending spaces and line endings are not ignored.</p>
+        <p>For example:</p><pre xml:space="preserve">&lt;a href=" #Fredericton"&gt;Home of Bliss Carman&lt;/a&gt;</pre>
+        <p>For the <code>a</code> element, the following give true:</p><pre xml:space="preserve">self-attribute-equals a href " #Fredericton"
+self-attribute-equals * href " #Fredericton"</pre>
+        <p>And the following give false:</p><pre xml:space="preserve">self-attribute-equals a href "#Fredericton "
+self-attribute-equals * href " #fredericton"</pre>
+    </body>
+</html>

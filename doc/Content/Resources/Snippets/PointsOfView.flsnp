@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="2" MadCap:lastHeight="86" MadCap:lastWidth="1125">
+    <body>
+        <p>The point of view, <em>pov</em> may be one of the following: <code>after</code>, <code>ancestor</code>, <code>before</code>, <code>child</code>, <code>descendant</code>, <code>next</code>, <code>parent</code>, <code>previous</code>, and <code>self</code>.</p>
+    </body>
+</html>

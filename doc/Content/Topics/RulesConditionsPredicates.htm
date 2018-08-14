@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="2" MadCap:lastHeight="1267" MadCap:lastWidth="1518">
+    <head>
+    </head>
+    <body>
+        <h1>Conditions and Predicates</h1>
+        <p>In a rule, each <code>when</code> and <code>test</code> section contains a condition. A <em>condition</em> specifies a logical assertion about an element. A condition gives a result that is either <em>true</em> or <em>false</em>.</p>
+        <p>In a <code>when</code> section, a true condition in means that a rule should be applied to the element. If all conditions in the <code>when</code> sections of a rule are false, then <MadCap:variable name="Var.FlareLint" /> does not apply the rule.</p>
+        <p>In a <code>test</code> section, a true condition means that the matched element meets the rule’s criteria. When it finds a <code>test</code> condition that gives true, then <MadCap:variable name="Var.FlareLint" /> considers the matched element to correctly follow the rule. If all single <code>test</code> conditions are false, then <MadCap:variable name="Var.FlareLint" /> considers the element to have broken the rule and adds the rule’s message to a report.</p>
+        <p>You compose conditions in terms of the properties of an XML element, such as its tag, attributes, the text it contains, and the elements that surround it. The following example matches table elements:</p><pre xml:space="preserve">when:&#160;self table</pre>
+        <p>The text <code>self table</code> is the condition. The word <code>self</code> is a predicate in the condition. A predicate specifies the property of an element to check. In this case, the <code>self</code> predicate checks the element’s tag. If an element’s tag is <code>table</code>, then this predicate is true. Therefore, the condition is true. Other elements, like <code>p</code> or <code>h1</code>, cause this condition to give false.</p>
+        <p><span class="admonishment">Tip:&#160;</span>you can view a Flare file’s XML elements in the Flare internal text editor or by opening a Flare file in an external text editor, like Notepad.</p>
+        <p>Some predicates, like <code>self</code>, need a tag, attribute, or number. Others require none, like <code>fail</code>. And some predicates need text, which must be enclosed in straight quotation marks ("). For example, the following condition is true when the text of an element has the word cat followed by a pound sign:</p><pre xml:space="preserve">when:&#160;contains "cat#"</pre>
+        <p>You can make a condition more precise by combining predicates with the word <code>and</code>. The following example tests that a an unordered list (<code>ul</code>) is in a text box (<code>div</code> element):</p><pre xml:space="preserve">test: self ul and parent div</pre>
+        <p>You can reverse a predicate’s result, making a true predicate false and vice versa, with the word <code>not</code>. For example, the following matches <code>li</code> elements and tests that they do not contain <code>p</code> elements:</p><pre xml:space="preserve">when:&#160;self li<br />test: not child p</pre>
+        <p>The <code>not</code> word applies only to the predicate that it precedes,  not the whole condition. For example, these <code>test</code> sections give the same result, which is to test that an element does not contain a paragraph and is in a table:</p><pre xml:space="preserve">test: not child p and ancestor table<br />test: ancestor table and not child p</pre>
+    </body>
+</html>

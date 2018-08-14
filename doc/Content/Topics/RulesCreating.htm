@@ -1,11 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="2" MadCap:lastHeight="482" MadCap:lastWidth="1147">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="1248" MadCap:lastWidth="1492">
     <head>
     </head>
     <body>
-        <h1>Implementing and Modifying Rules</h1>
-        <p>You can modify existing rules and implement new ones. <MadCap:variable name="Var.FlareLint" /> rules are defined in Python modules. Each rule instantiates an object of class <code>Error</code> or <code>Warning</code>. These classes are defined in the <code>flarelint.rule</code> module of the <MadCap:variable name="Var.FlareLint" /> package. A rule can inspect the contents of a Flare file through the use of a Node object, defined in the <code>flarelint.flarenode</code> module.</p>
-        <p>For detailed information on rules and Flare nodes, see their respective source files in the <MadCap:variable name="Var.FlareLint" /> package.</p>
-        <p>For examples of rule definitions, see the rule files in your personal rule folder, <code><MadCap:variable name="Var.PersonalRuleFolder" /></code>.</p>
+        <h1>Creating and Customizing Rules</h1>
+        <p>You can create new rules and modify existing ones. Each <MadCap:variable name="Var.FlareLint" /> rule is defined in a <MadCap:variable name="Var.FlareLint" /> rule file. A  rule file is a plain text file that you can view and edit with any text editor, such as Microsoft Notepad. The name of a rule file ends with <code>rule.txt</code>. For example, the <code>flarelint_h1_missing_rule.txt</code> file specifies that in topic files, the <code>body</code> element must contain an <code>h1</code> element.</p>
+        <p>A rule file is composed of sections, with each section starting with a section name. For example, the following is a comment section:</p><pre xml:space="preserve">comment: See other rules for checking for the 
+position of the header in the topic body.<![CDATA[
+]]></pre>
+        <p>The content of a section may have any amount of spaces and line breaks. You can use the extra spaces and line breaks to make it clearer for you to read. For example, the following specifies the same section as the previous example:</p><pre xml:space="preserve">comment: 
+  See other rules for checking for the 
+  position of the header in the topic body. <![CDATA[
+]]></pre>
+        <p>There is only one exception to where to you can put extra spaces:&#160;a section name must start at the beginning of a line. Also, it must immediately end with a colon (“:”). Sometimes a section contains text that includes a colon but you do not intend it to start a section. In this case, make sure that word preceding the colon does not start at the beginning of a line.</p><pre xml:space="preserve">comment: The following phrase does 
+not start a new section: it is still 
+in the comment section.</pre>
+        <p>A rule file has the following sections. In a rule file, you must organize sections in the following order:</p>
+        <ul>
+            <li><code>comment</code>: A description, annotation, or other information for you and other people. <MadCap:variable name="Var.FlareLint" /> ignores the text in the comment section. This section is optional.</li>
+            <li><code>rule</code>: The type of rule, either <code>error</code> or <code>warning</code>. This section is required.</li>
+            <li><code>extensions</code>: The file name extensions of the types of files to which to apply this rule. You must specify at least one file name extension. Do not including the dot (“.”) in the extensions. This section is required.</li>
+            <li><code>when</code>: A condition that describes the HTML or XML element in a Flare file that this rule applies to. You must specify at least one <code>when</code> section. You can specify more <code>when</code> sections if necessary. </li>
+            <li><code>test</code>: A condition that specifies requirements for the element that was matched in the <code>when</code> section. You must specify at least one <code>test</code> section. You can specify more <code>test</code> sections if necessary.</li>
+            <li><code>message</code>:&#160;Text that describes why the <code>test</code> sections failed. This is the text that appears in a <MadCap:variable name="Var.FlareLint" /> report. This section is required.</li>
+        </ul>
     </body>
 </html>

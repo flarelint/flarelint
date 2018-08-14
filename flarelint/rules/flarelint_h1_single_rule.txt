@@ -1,0 +1,12 @@
+rule: error
+
+extensions: htm html
+
+when: self h1
+
+test: not before h1
+
+message:
+
+Too many `h1` titles. A topic may contain only one title. To fix,
+restructure the topic or create separate sub-topic files.

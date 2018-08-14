@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="956" MadCap:lastWidth="1099">
+    <head>
+    </head>
+    <body>
+        <h1><em>pov</em>-style</h1><pre xml:space="preserve"><em>pov</em>-style <em>tag</em>
+<em>pov</em>-style <em>tag</em>.<em>class</em>
+<em>pov</em>-style .<em>class</em></pre>
+        <p>True when the element's tag and its class attribute are <em>tag</em> and <em>class</em>, respectively. This predicate uses a similar format to the Style Picker and Styles window in Flare. In these windows, the name after a period (.) is the <code>class</code> attribute in the element's XML.</p>
+        <p>If <em>tag</em> is not specified, then it is ignored. If <em>class</em> is not specified then it matches only an empty class attribute.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/PointsOfView.flsnp" />
+        <p>For example, when scanning this element</p><pre xml:space="preserve">&lt;p class="Note"&gt;...&lt;/p&gt;</pre>
+        <p>these predicates each give a true result:</p><pre xml:space="preserve">self-style p.Note
+self-style .Note</pre>
+        <p>and this predicate gives false:</p><pre xml:space="preserve">self-style p</pre>
+        <p>Alternately, with this element:</p><pre xml:space="preserve">&lt;p&gt;...&lt;/p&gt;</pre>
+        <p>this predicate gives false:</p><pre>style p.Note</pre>
+        <p>and this predicate gives true:</p><pre>style p</pre>
+    </body>
+</html>

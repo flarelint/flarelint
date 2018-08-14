@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="675" MadCap:lastWidth="1394">
+    <head>
+    </head>
+    <body>
+        <h1><em>pov</em>-attribute-contains</h1><pre xml:space="preserve"><em>pov</em>-attribute-contains <em>tag</em> <em>name</em> "<em>text</em>"
+<em>pov</em>-attribute-contains * <em>name</em> "<em>text</em>"</pre>
+        <p>True when an element has an attribute <em>name</em> and its value contains <em>text</em>. False when either an element does not have an attribute <em>name</em> or, if it does have this attribute, its value does not contain <em>text</em>. This predicate is case-sensitive.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/PointsOfView.flsnp" />
+        <MadCap:snippetBlock src="../../Resources/Snippets/wildcard.flsnp" />
+        <p>For example:</p><pre xml:space="preserve">&lt;a href="#Fredericton"&gt;Home of Bliss Carman&lt;/a&gt;</pre>
+        <p>For the <code>a</code> element, the following give true:</p><pre xml:space="preserve">self-attribute-contains a href "Fred"
+self-attribute-contains * href "deric"</pre>
+        <p>And the following give false:</p><pre xml:space="preserve">self-attribute-contains * href "John"
+self-attribute-contains a href "#fred"</pre>
+    </body>
+</html>

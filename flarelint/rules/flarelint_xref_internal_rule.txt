@@ -1,0 +1,14 @@
+rule: error
+
+extensions: htm html flsnp
+
+when: self MadCap:xref
+
+test: not self-attribute-contains MadCap:xref href "#"
+
+message:
+
+Cross-reference to a location in the same topic or to a specific
+element inside another topic. Our writing style allows cross-references
+to link only to an entire topic file. To fix, restructure or link the
+cross-references to another topic (in the same project).

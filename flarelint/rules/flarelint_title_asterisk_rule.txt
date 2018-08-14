@@ -1,0 +1,28 @@
+rule: warning
+
+extensions: htm html flsnp
+
+when: self h1
+when: self h2
+when: self h3
+when: self h4
+when: self h5
+when: self h6
+
+test:
+not self-contains h1 "*" and
+not self-contains h2 "*" and
+not self-contains h3 "*" and
+not self-contains h4 "*" and
+not self-contains h5 "*" and
+not self-contains h6 "*"
+
+message:
+
+A title contains an asterisk (“*”).  MadCap Flare version 8 (and
+possibly other versions) will not put a cross-reference to this topic
+in a relationships proxy for PDF targets.  To fix, remove or replace
+the asterisk with something else. Also, update TOC entries that refer
+to this topic. Finally, publicly shame MadCap for such an arbitrary,
+confounding, time-wasting bug. (Still bitter.)
+

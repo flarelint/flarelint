@@ -1,0 +1,15 @@
+rule: error
+
+extensions: htm html flsnp
+
+when: self div
+
+test: not self-attribute div style
+
+message:
+
+Text box with hard-coded style formatting.  This style formatting
+could include width, height, or border. This formatting is handled by
+our stylesheets. To fix, set the formatting for border, width, height,
+and so on, to (Default) in the Text Box Properties dialog.
+

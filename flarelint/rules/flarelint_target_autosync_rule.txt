@@ -1,0 +1,16 @@
+rule: error
+
+extensions: fltar
+
+when: self-attribute-equals CatapultTarget DisableAutoSync "true"
+
+test: fail
+
+message:
+
+Auto-sync of import files is not enabled. We use auto-sync to make
+sure that this project uses the latest files from the other projects
+from which it imports. To fix: in the General tab, disable Disable
+Auto-Sync of all Import Files.
+
+

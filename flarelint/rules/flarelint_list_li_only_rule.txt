@@ -1,0 +1,14 @@
+rule: error
+
+extensions: htm html flsnp
+
+when: parent ol
+when: parent ul
+
+test: self li
+
+message:
+
+A non-list element in a list. Only `li` elements are supported in
+lists.  To fix: convert this element to a list item or wrap it in a
+list item.

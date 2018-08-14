@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="1071" MadCap:lastWidth="1394">
+    <head>
+    </head>
+    <body>
+        <h1><em>pov</em>-attribute</h1><pre xml:space="preserve"><em>pov</em>-attribute <em>tag</em> <em>name</em>
+<em>pov</em>-attribute * <em>name</em></pre>
+        <p>True when an element <em>tag</em> has a <em>name</em> attribute with a value that is not empty, false otherwise. </p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/wildcard.flsnp" />
+        <MadCap:snippetBlock src="../../Resources/Snippets/PointsOfView.flsnp" />
+        <p>For example:</p><pre>&lt;p style="color: blue;"&gt;Pelee Island&lt;/p&gt;</pre>
+        <p>the predicate <code>self-attribute p style</code> gives true and <code>self-attribute h1 style</code> gives false.</p>
+        <p>In the following:</p><pre xml:space="preserve">&lt;h1 style=""&gt;Wolf Island&lt;/h1&gt;</pre>
+        <p>the predicate <code>self-attribute p style</code> gives false, <code>self-attribute h1 style</code> gives false, and <code>self-attribute * style</code> gives false.</p>
+        <p>In the following:</p><pre xml:space="preserve">&lt;li&gt;Manitoulin Island&lt;/li&gt;</pre>
+        <p>the predicate <code>self-attribute li style</code> gives false and <code>self-attribute * style</code> gives false.</p>
+        <p>Spaces and line breaks at the beginning and end of the attribute value are ignored. </p>
+        <p>For example:</p><pre xml:space="preserve">&lt;a href="&#160;&#160;&#160;" title="   Population 30"&gt;Dorval Island&lt;/a&gt;</pre>
+        <p>For the <code>a</code> element, the following gives false:</p><pre>self-attribute a href</pre>
+        <p>And the following gives true:</p><pre>self-attribute a title</pre>
+    </body>
+</html>

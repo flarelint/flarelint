@@ -1,0 +1,35 @@
+rule: error
+
+extensions: htm html flsnp
+
+when: self li and next li and parent ul and language en
+
+test: self-ends li "." and next-ends li "."
+test: self-ends li "." and next-ends li "?"
+test: self-ends li "." and next-ends li "!"
+
+test: self-ends li "?" and next-ends li "."
+test: self-ends li "?" and next-ends li "?"
+test: self-ends li "?" and next-ends li "!"
+
+test: self-ends li "!" and next-ends li "."
+test: self-ends li "!" and next-ends li "?"
+test: self-ends li "!" and next-ends li "!"
+
+test:
+
+not self-ends li "." and
+not self-ends li "?" and
+not self-ends li "!" and
+not next-ends li "." and
+not next-ends li "?" and
+not next-ends li "!"
+
+message:
+
+Inconsistent punctuation in a bullet list (`ul`).  All items in a list
+must consistently use uncapitalized phrases (except, of course,
+product and proper names) with no ending punctuation, or full
+sentences with first words capitalized and ending punctuation.
+Accepted ending punctuation is ., ?, and !.  To fix, adjust the
+capitalization and punctuation.

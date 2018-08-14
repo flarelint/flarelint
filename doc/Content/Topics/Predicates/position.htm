@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="1060" MadCap:lastWidth="1099">
+    <head>
+    </head>
+    <body>
+        <h1><em>pov</em>-last</h1><pre xml:space="preserve"><em>pov</em>-last <em>tag</em>
+<em>pov</em>-last *</pre>
+        <p>True when an element <em>tag</em> is the last child among its siblings. The sibling elements do not have to be the same. </p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/wildcard.flsnp" />
+        <MadCap:snippetBlock src="../../Resources/Snippets/PointsOfView.flsnp" />
+        <p>This predicate ignores descendants of children. For example:</p><pre xml:space="preserve">&lt;body&gt;
+  &lt;h1&gt;Cities with Airport Train Stations&lt;/h1&gt;
+  &lt;p&gt;The best way to get to an airport is by train:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Barcelona&lt;/li&gt;
+    &lt;li&gt;Paris&lt;/li&gt;
+    &lt;li&gt;New York&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+</pre>
+        <p>For the <code>body</code> element, the following gives true:</p><pre xml:space="preserve">child-last ul</pre>
+        <p>For the <code>p</code> element, the following gives true:</p><pre xml:space="preserve">after-last ul</pre>
+        <p>For the <code>li</code> element containing “New York”, the following gives true:</p><pre xml:space="preserve">self-last li</pre>
+        <p>For the <code>li</code> element containing “Barcelona”, the following give false:</p><pre xml:space="preserve">self-last li
+after-last li
+next-last li</pre>
+    </body>
+</html>

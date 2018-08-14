@@ -1,0 +1,20 @@
+rule: warning
+
+extensions: htm html flsnp
+
+when: self MadCap:xref
+
+test:
+
+not self-ends MadCap:xref "!"
+and not self-ends MadCap:xref "?"
+and not self-ends MadCap:xref "."
+and not self-ends MadCap:xref ","
+
+message:
+
+Misplaced punctuation in a cross-reference.  To fix: place punctuation
+outside of the cross-reference element. *Note:* Flare replaces the
+text in cross-references when it builds a target. Punctuation, and any
+other text that you inserted inside this element could be replaced at
+the next build.

@@ -1,0 +1,18 @@
+rule: warning
+
+extensions: htm html
+
+when: self title
+
+test: self-empty title
+
+message:
+
+The HTML `title` element contains text.  Flare prefers using this
+text, when it exists, instead of the topic's `h1` title when
+generating online help.  We prefer the latter to make maintenance
+easier and avoid surprises.  For example, when these elements do not
+have identical content, the links in the See Also sections and search
+results of online help have different names than the topic title.  To
+fix, right-click the topic in Content Explorer, then in the Topic
+Properties tab, delete Topic Title.

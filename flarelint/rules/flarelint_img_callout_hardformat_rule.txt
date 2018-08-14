@@ -1,0 +1,13 @@
+rule: warning
+
+extensions: props
+
+when: self Shape
+
+test: not self-begins Shape "{\\rtf"
+
+message:
+
+Custom formatting in a callout.  To fix, in Capture, replace this
+callout with a new callout and set the font size to 16pt.
+

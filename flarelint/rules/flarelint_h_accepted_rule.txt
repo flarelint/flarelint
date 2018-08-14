@@ -1,0 +1,21 @@
+comment:
+
+Note that the match conditions are also the test, so we make the test
+always fail.
+
+rule: error
+
+extensions: htm html flsnp
+
+when: self h3
+when: self h4
+when: self h5
+when: self h6
+
+test: fail
+
+message:
+
+Unsupported header. This level of header is not supported by our
+conventions or styles.  To fix, place a subtopic in a separate
+file.

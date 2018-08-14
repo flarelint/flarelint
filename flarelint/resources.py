@@ -22,7 +22,7 @@
 
 "Templates and commonly-used text."
 
-VERSION = "1.2"
+VERSION = "1.3"
 
 WELCOME = "FlareLint {0}\n(c) 2016-2017 Intelerad Medical Systems Incorporated\n".format(VERSION)
 
@@ -47,19 +47,11 @@ For full documentation, see the doc folder.
 
 """
 
-BAD_ARG = """Error: Unrecognized option. Try 'python flarelint --help' (without
-quotes).
-"""
-
-MISSING_PROJECT = """Error: Could not find a project to scan. Either you did not specify
-a Flare project to lint or there is no project in this folder.
-"""
-
 REPORT_FILE = 'FlareLintReport.html'
 
 DATE_FORMAT = "%b %d, %Y %I:%M%p"
 
-REPORT_TEMPLATE = """<!DOCTYPE html>
+TEMPLATE_REPORT = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -155,33 +147,71 @@ ${results}
 </html>
 """
 
-FILE_TEMPLATE = """<div class="file">
-  <p><a target="_blank" href="${fileuri}"><code>${fullpath}</code></a></p>
+TEMPLATE_FILE = """<div class="file">
+  <p><a target="_blank" href="${fileuri}" title="Flare file: ${path}"><code>${path}</code></a></p>
   ${results}
 </div>
 """
 
-RESULT_TEMPLATE = """  <div class="${level}">
-    <p>${level}: <code>${tag}</code> ${context}</p>
+TEMPLATE_RESULT = """  <div class="${level}">
+    <p>
+      <span title="Rule: $source">${level}</span>: 
+      <code>${tag}</code> ${context}
+    </p>
     <p>${message}</p>
   </div>"""
 
 REPORT_NO_ISSUES = """<p>Congratulations! No issues found.</p>"""
 
-PARSE_ERROR = """Could not read the Flare source file because it is not well-formed
-XML. To fix, use MadCap Flare or a text editor to correct the file."""
-
-PROGRESS_RULES_LOAD = """\nLoading rules modules: {0}"""
-PROGRESS_RULES_DEFAULT = """\nInstalling default rule modules."""
-PROGRESS_SCANNING = """\nApplying rules to files."""
-PROGRESS_FORMATTING = """\nFormatting report."""
-PROGRESS_TALLY = """\nErrors: {0}\nWarnings: {1}"""
+PROGRESS_RULES_LOAD = """Loading rules: {0}"""
+PROGRESS_RULES_DEFAULT = """Installing default rules."""
+PROGRESS_SCANNING = """Applying rules to files."""
+PROGRESS_FORMATTING = """Formatting report."""
+PROGRESS_TALLY = """Errors: {0}\nWarnings: {1}"""
 PROGRESS_REPORT = """Report: {0}"""
 PROGRESS_PROJECT = """Directory: {0}\nProject: {1}"""
 PROGRESS_DONE = "\nDone."
 
-ERROR_LEVEL = 'Error'
-WARNING_LEVEL = 'Warning'
+LEVEL_ERROR = 'error'
+LEVEL_WARNING = 'warning'
 
 HELP_PROJECT = 'Flare project (.flprj) to lint. Default is the project in the current directory.'
 HELP_VERBOSE = 'Verbose. Print progress about files being processed.'
+
+COMPILER_EOF = 'end of file'
+
+ERROR_COMPILER = '\nError in {0}, line {1}:\n{2}'
+
+ERROR_EXPECT_SECTION = """Expected a {0} section, but found {1} instead.  A section must
+start at the beginning of a line."""
+
+ERROR_EXPECT_NAME = """Expected a name for {0}, but found {1} instead."""
+
+ERROR_EXPECT_TAG = """Expected a name or * for {0}, but found {1} instead."""
+
+ERROR_EXPECT_NUMBER = """Expected a number for {0}, but found {1} instead."""
+
+ERROR_EXPECT_QUOTE = """Expected quoted text for {0}, but found {1} instead."""
+
+ERROR_COMPILE_MESSAGE = """Found a {0} section in a message section. A message section may
+only contain text. To make "{0}" a part of your message, insert a
+space before it."""
+
+ERROR_COMPILE_PREDICATE = """Expected a predicate, but found {0} instead."""
+
+ERROR_COMPILE_TYPE = """Expected a rule type of {0} or {1}, but found {2} instead."""
+
+ERROR_BAD_ARG = """Error: Unrecognized option. Try 'python flarelint --help' (without
+quotes).
+"""
+
+ERROR_MISSING_PROJECT = """Error: Could not find a project to scan. Either you did not specify
+a Flare project to lint or there is no project in this folder.
+"""
+
+ERROR_PARSE = """Could not read the Flare source file because it is not well-formed
+XML. To fix, use MadCap Flare or a text editor to correct the file."""
+
+ERROR_REPORT = """Error: the report contains badly formed HTML code. A message
+section in a rule might contain an unescaped *, `, or _ character. Or
+a template in resources.py might contain badly formed HTML."""

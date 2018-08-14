@@ -1,0 +1,24 @@
+rule: warning
+
+extensions: htm html flsnp
+
+when: self h1
+when: self h2
+when: self h3
+when: self h4
+when: self h5
+when: self h6
+
+test: not self-contains * "\n"
+test: child br
+
+message:
+
+Hidden line break in a heading element. This line break could cause a
+broken page header or footer in PDF.  To fix, open the topic in the
+text editor (raw XML) and make sure that the contents of the element
+are all on one line.
+
+*Tip:* If there are keyword (`MadCap:keyword`) elements in the
+heading, move them to the first paragraph.
+

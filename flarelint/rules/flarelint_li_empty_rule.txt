@@ -1,0 +1,13 @@
+rule: warning
+
+extensions: htm html flsnp
+
+when: self-position li 0 and parent ul
+
+test: next li
+
+message:
+
+Only one list item (`li`) in a bullet list (`ul`). Are you sure that
+this needs to be a bullet list?
+

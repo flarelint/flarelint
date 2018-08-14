@@ -1,0 +1,17 @@
+rule: error
+
+extensions: htm html flsnp
+
+when: self p and parent li and ancestor ul
+
+test: not after p
+
+message:
+
+Too many paragraphs in a list item (`li`) of a bullet list (`ul`).
+Our writing convention is for a single paragraph in a bullet list item
+(`li`). To fix, move the extra paragraphs to separate list items,
+consider using sections (`h2.Section` elements), or consider using a
+table.
+
+

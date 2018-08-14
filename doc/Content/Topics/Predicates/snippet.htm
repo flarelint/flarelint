@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="593" MadCap:lastWidth="1099">
+    <head>
+    </head>
+    <body>
+        <h1>snippet</h1><pre xml:space="preserve">snippet "<em>snippet-file</em>"
+snippet "<em>snippet-file</em>"
+</pre>
+        <p>True when an element is a link to a snippet, <em>snippet-file</em>, false otherwise. This predicate is case-sensitive.</p>
+        <p>Flare has two kinds of inserted snippets, text and block. A <em>text snippet</em> is in-line with other content. For example. a paragraph that contains a snippet would be encoded as a link to a text snippet. A <em>block snippet</em> occupies an entire blank line in a topic body.</p>
+        <p>For example:</p><pre xml:space="preserve">&lt;body&gt;
+  &lt;h1&gt;Report on Executive Decisions&lt;/h1&gt;
+  &lt;p&gt;Lord Ronald ran madly off in all directions.&lt;/p&gt;
+  &lt;MadCap:snippetBlock src="Resources/Snippets/AcmeDisclaimer.flsnp"&gt;
+&lt;/body&gt;
+</pre>
+        <p>For the <code>MadCap:snippetBlock</code> element, the following gives true:</p><pre xml:space="preserve">snippet "Resources/Snippets/AcmeDisclaimer.flsnp"</pre>
+    </body>
+</html>

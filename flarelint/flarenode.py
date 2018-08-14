@@ -37,6 +37,8 @@ class TestNode.
 import xml.etree.ElementTree as ET
 import unittest
 import os
+import sys
+import pdb
 
 _FLARE_LANG_DEFAULT = "en-us"
 
@@ -142,14 +144,20 @@ class Node:
 
         return EMPTY, pos
 
-    def trace(self, label=''):
+    def trace(self, label='', encoding='utf-8'):
         """Print self to standard output with an optional prefix.  Returns
         self, so you can chain a call to this method to diagnose your
         expressions.
         """
 
-        outStr = ET.tostring(self._elem) if not self._isempty() else 'empty'
-        print('{0}{1}'.format(label, outStr))
+        outStr = ET.tostring(self._elem, encoding='unicode') if not self._isempty() else 'empty'
+        print('{0}{1}'.format(label, outStr).encode(encoding, errors='xmlcharrefreplace'))
+        return self
+
+    def debug(self):
+        """Enter the Python Debugger."""
+
+        pdb.set_trace()
         return self
 
     def lang(self, tag):
@@ -394,12 +402,14 @@ class Node:
                                      and predicate(n))
 
     def style(self, name):
-        """Returns True if the Flare style of the node matches the name
-        argument. The argument must be in the format displayed in the
-        Styles window and Style Picker. That format is one of
-        "tag.class", "tag", or ".class". If tag is missing, it is
-        ignored when matching. If class is missing then it matches
-        only the empty class attribute.
+        """Returns self if the Flare style of the node matches the name
+        argument, empty node otherwise. 
+
+        The argument must be in the format displayed in the Styles
+        window and Style Picker. That format is one of "tag.class",
+        "tag", or ".class". If tag is missing, it is ignored when
+        matching. If class is missing then it matches only the empty
+        class attribute.
 
         For example, given a Flare node, n, for this element:
 
@@ -416,14 +426,19 @@ class Node:
         tagmatch = not styletag or styletag == nodetag
         classmatch = styleclass == nodeclass
 
-        return tagmatch and classmatch
+        if tagmatch and classmatch:
+            return self
+        else:
+            return EMPTY
 
     def hascondition(self, cond):
-        """Returns true if self has a condition, 'cond'."""
-        condNode = self.ancestor_or_self("*",
-                                         lambda n:
-                                         cond in n.attribute("MadCap:conditions"))
-        return bool(condNode)
+        """Returns self if self has a condition, 'cond', empty node otherwise."""
+        if self.ancestor_or_self("*",
+                                 lambda n:
+                                 cond in n.attribute("MadCap:conditions")):
+            return self
+        else:
+            return EMPTY
 
     def toclevel(self):
         """Returns the depth of a TocEntry in a TOC. Level 0 is the top level."""
@@ -435,6 +450,22 @@ class Node:
             level = level + 1
 
         return level
+
+    def snippet(self, src):
+        """Returns self if the Flare node is a snippet that refers to src, the
+        empty element otherwise."""
+
+        if self.iselement("MadCap:snippetBlock", lambda n: n.attribute("src") == src):
+            return self
+        elif self.iselement("MadCap:snippetText", lambda n: n.attribute("src") == src):
+            return self
+        else:
+            return EMPTY
+
+
+    def path(self):
+        """Returns the path of the file name from which the node was
+        parsed. None if the node was not parsed from a file."""
 
 # We use the empty node to allow chaining of calls to Node objects.
 EMPTY = Node(None, None)
@@ -500,6 +531,18 @@ class TestNode(unittest.TestCase):
     <b>Banshee<c>Cat</c><c>Crocodile</c></b>
     <MadCap:b>Bobcat</MadCap:b>
   </a>
+
+  <f>
+    <MadCap:snippetBlock src="goodbye/yellow/brick/road"/>
+  </f>
+
+  <g class="Caption">
+    <h>The loon is also called the Great Northern Diver.</h>
+  </g>
+
+  <i MadCap:conditions="Friendly.Giant">
+    <j>Look up. Way up.</j>
+  </i>
 </root>
 """)
 
@@ -529,7 +572,7 @@ class TestNode(unittest.TestCase):
                          ['Ant', 'Bonobo', 'eater', 'Bee', 'Bandicoot'])
 
 
-    def test_tttribute(self):
+    def test_attribute(self):
         n = Node(self.root.find('.//a'), self.parents)
         self.assertEqual(n.attribute('MadCap:a'), 'Alligator')
         self.assertEqual(n.attribute('b'), 'Buffalo')
@@ -711,5 +754,28 @@ class TestNode(unittest.TestCase):
         self.assertFalse(n.child('a').child('b').lang('fr-ca-DURP'))
         self.assertFalse(n.child('a').child('b').lang('en'))
 
+    def test_snippet(self):
+        n = Node(self.root.find('.//f'), self.parents)
+        self.assertTrue(n.child('MadCap:snippetBlock').snippet("goodbye/yellow/brick/road"))
+        self.assertTrue(n.child('MadCap:snippetBlock').snippet("goodbye/yellow/brick/road").parent("f"))
+        self.assertFalse(n.child('MadCap:snippetBlock').snippet("goodbye/yellow/brick/road").parent("a"))
+        self.assertFalse(n.child('MadCap:snippetBlock').snippet("hello/red/wood/path"))
+        self.assertFalse(n.snippet("hello/red/wood/path"))
+        
+    def test_style(self):
+        n = Node(self.root.find('.//g'), self.parents)
+        self.assertTrue(n.style('g.Caption'))
+        self.assertTrue(n.style('.Caption'))
+        self.assertTrue(n.style('g.Caption').child('h'))
+        self.assertFalse(n.style('g.Caption').child('zzz'))
+        self.assertFalse(n.style('g'))
+
+    def test_hascondition(self):
+        n = Node(self.root.find('.//i'), self.parents)
+        self.assertTrue(n.hascondition('Friendly.Giant'))
+        self.assertTrue(n.hascondition('Friendly.Giant').child('j'))
+        self.assertTrue(n.child('j').hascondition('Friendly.Giant'))
+        self.assertFalse(n.hascondition('Mister.Dressup'))
+        
 if __name__ == '__main__':
     unittest.main()

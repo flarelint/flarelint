@@ -1,0 +1,12 @@
+rule: error
+
+extensions: props
+
+when: self-attribute Shape FontSize
+
+test: self-attribute-equals Shape FontSize "16pt"
+
+message:
+
+Incorrect font size for a callout.  To fix, in Capture, set the font
+size to 16pt.

@@ -1,0 +1,13 @@
+rule: warning
+
+extensions: htm html flsnp
+
+when: self ul
+
+test: not next ul
+
+message:
+
+Two or more consecutive, separate `ul` elements. Should these lists be
+merged?  To fix two consecutive lists, do the following: Use Format |
+List | List Actions | Merge command.

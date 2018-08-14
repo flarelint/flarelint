@@ -9,4 +9,7 @@
     <Dialog Name="B3.XmlMdiEditorKit.ImageGeneralDialogPage">
         <Link Value="H:\scratch\FlareLint\src\doc\Content\Images\OpenFileSecurityWarning.png" />
     </Dialog>
+    <Dialog Name="B3.CatapultProjectUserInterfaceKit.InsertSnippetDialog">
+        <Link Value="H:\scratch\FlareLint_1-3\doc\Content\Resources\Snippets\PointsOfView.flsnp" />
+    </Dialog>
 </RecentLinks>

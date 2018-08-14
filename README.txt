@@ -1,6 +1,6 @@
 Welcome to FlareLint!
 
-Copyright 2016-2017 Intelerad Medical Systems Incorporated.  All rights
+Copyright 2016-2018 Intelerad Medical Systems Incorporated.  All rights
 reserved.
 
 You can use FlareLint to make production of your MadCap Flare projects

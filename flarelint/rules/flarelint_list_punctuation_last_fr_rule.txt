@@ -1,0 +1,13 @@
+rule: error
+
+extensions: htm html flsnp
+
+when: self-last li and parent ul and language fr
+
+test: self-ends li "."
+
+message:
+
+Incorrect punctuation in the last item (`li`) of a bullet list (`ul`). The
+last item must be an uncapitalized phrase (except, of course, product
+and proper names) and end with ".". To fix, adjust the punctuation.

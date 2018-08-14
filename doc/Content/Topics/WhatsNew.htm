@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="969" MadCap:lastWidth="1053">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="996" MadCap:lastWidth="1329">
     <head>
         <link href="../Resources/TableStyles/Standard.css" rel="stylesheet" MadCap:stylesheetType="table" />
     </head>
     <body>
-        <h1>What's New</h1>
+        <h1>What’s New</h1>
         <p>New features and bug fixes:</p>
         <table style="width: 100%; caption-side: top; mc-table-style: url('../Resources/TableStyles/Standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-Master" cellspacing="0">
             <col class="Column-Column1" />
@@ -18,13 +18,23 @@
             <tbody>
                 <tr class="Body-Body1">
                     <td class="BodyE-Column1-Body1">
+                        <p>1.3</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>Completely new way for defining rules. There is no need for you to learn Python programming to customize rules. You can create and modify rules using a simple, straightforward language. For more information, see <MadCap:xref href="RulesCreating.htm">Creating and Customizing Rules</MadCap:xref>.</p>
+                        <p>You can see the file name of the rule from which a message was issued by hovering over the word “error” or “warning” in a report. This is useful when developing and troubleshooting rules.</p>
+                        <p><code>FlareLint.bat</code> correctly accepts paths with space characters.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
                         <p>1.2</p>
                     </td>
                     <td class="BodyD-Column1-Body1">
                         <p>Improvements to this manual.</p>
                         <p>In the HTML report, file names appear with their entire path. You can click the path to open the offending file in a new browser tab or window. You can copy and paste this path to edit the file directly in your favorite editor.</p>
                         <p><code>FlareLint.bat</code> prompts you to press any key only when there is an error in invoking <MadCap:variable name="Var.FlareLint" />. Removed the <code>-q</code> command-line argument.</p>
-                        <p>You can inspect, add, and modify rules without mangling your Python installation or <MadCap:variable name="Var.FlareLint" /> installation. For more information, see <MadCap:xref href="Rules.htm">Managing Rules</MadCap:xref> and <MadCap:xref href="RulesCreating.htm">See "Modifying and Creating New Rules"</MadCap:xref>.</p>
+                        <p>You can inspect, add, and modify rules without mangling your Python installation or <MadCap:variable name="Var.FlareLint" /> installation. For more information, see <MadCap:xref href="RulesManaging.htm">Managing Rules</MadCap:xref> and <MadCap:xref href="RulesCreating.htm">See "Modifying and Creating New Rules"</MadCap:xref>.</p>
                         <p>Rules may check for language. The <code>flarenode.Node.lang()</code> method returns <code>True</code> if its argument matches the <code>xml:lang</code> attribute of the node, its nearest ancestor, or the Flare project, in that order. For details, see the <code>flarenode.py</code> module.</p>
                         <p>Rules are more easily customizable. For details, see the rule source code.</p>
                         <p>Other small improvements to the <MadCap:variable name="Var.FlareLint" /> source code.</p>

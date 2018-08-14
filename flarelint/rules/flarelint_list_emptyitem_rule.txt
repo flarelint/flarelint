@@ -1,0 +1,14 @@
+rule: error
+
+extensions: htm html flsnp
+
+when: self-empty li
+
+test: descendant img
+test: descendant iframe
+test: descendant MadCap:snippetText
+test: descendant MadCap:variable
+
+message:
+
+Empty list item. An `li` element must not be empty. To fix: delete it.

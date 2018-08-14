@@ -5,7 +5,7 @@ import glob
 setupargs = {
     "name": "FlareLint",
     
-    "version": "1.2",
+    "version": "1.3",
     
     "packages": ["flarelint"],
     

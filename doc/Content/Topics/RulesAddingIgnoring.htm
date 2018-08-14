@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="1607" MadCap:lastWidth="1073">
+    <head>
+    </head>
+    <body>
+        <h1>Choosing Rules to Apply</h1>
+        <p>You can specify which rules to apply and which rules to ignore by modifying the contents of your personal rule folder, <code><MadCap:variable name="Var.PersonalRuleFolder" /></code>.</p>
+        <p><MadCap:variable name="Var.FlareLint" /> loads a rule when it meets these conditions:</p>
+        <ul>
+            <li>The file name of the rule ends with <code>rule.txt</code>.</li>
+            <li>The rule file is in your personal rule folder, <code><MadCap:variable name="Var.PersonalRuleFolder" /></code>.</li>
+        </ul>
+        <p><MadCap:variable name="Var.FlareLint" /> ignores all other rule files. </p>
+        <p><span class="admonishment">Warning: </span>Do not modify the contents of the rules folder in the <MadCap:variable name="Var.FlareLint" /> package. Modifying the installed package could prevent you from upgrading and uninstalling <MadCap:variable name="Var.FlareLint" />.</p>
+        <p class="task">
+            <MadCap:toggler targets="AddRules">To add rules:</MadCap:toggler>
+        </p>
+        <ol MadCap:targetName="AddRules">
+            <li>
+                <p>Use <MadCap:variable name="Var.FlareLint"></MadCap:variable> on any project. See <a href="Using.htm">Using</a>.</p>
+                <p>Running <MadCap:variable name="Var.FlareLint" /> ensures that, at a minimum, the default rules get installed in your personal rule folder.</p>
+                <p>You can ignore and delete the report that <MadCap:variable name="Var.FlareLint" /> generates.</p>
+            </li>
+            <li>
+                <p>In Windows Explorer, navigate to the folder that contains the <MadCap:variable name="Var.FlareLint" /> rules to add to <MadCap:variable name="Var.FlareLint" />, then select them.</p>
+                <p>For example, navigate to the shared folder that contains your team's standardized set of rules.</p>
+            </li>
+            <li>
+                <p>Copy the rules into the clipboard.</p>
+            </li>
+            <li>
+                <p>Click the Windows Start button and in the search field, type <code>%APPDATA%\FlareLint</code> then press Enter.
+</p>
+                <p>A Windows Explorer window appears displaying the contents of your personal rule folder.</p>
+            </li>
+            <li>
+                <p>Paste your rule files from your clipboard into your personal rule folder.</p>
+            </li>
+        </ol>
+        <p class="task">
+            <MadCap:toggler targets="ToIgnore">To specify which rules to ignore:
+</MadCap:toggler>
+        </p>
+        <ol MadCap:targetName="ToIgnore">
+            <li>
+                <p>Use <MadCap:variable name="Var.FlareLint" /> on any project. See <a href="Using.htm">Using</a>.</p>
+                <p>Running <MadCap:variable name="Var.FlareLint" /> ensures that, at a minimum, the default rules get installed in your personal rule folder.</p>
+                <p>You can ignore and delete the report that <MadCap:variable name="Var.FlareLint" /> generates.</p>
+            </li>
+            <li>
+                <p>Click the Windows Start button and in the search field, type <code><MadCap:variable name="Var.PersonalRuleFolder" /></code> then press Enter.</p>
+                <p>A Windows Explorer windows appears to display the contents of your personal rule folder.</p>
+            </li>
+            <li>
+                <p>Select the files for the rules that you want <MadCap:variable name="Var.FlareLint" /> to ignore.</p>
+            </li>
+            <li>
+                <p>Do one of the following:</p>
+                <ul>
+                    <li>Move the selected files to a folder outside of your personal rules folder. For example, drag your selected files to your desktop.</li>
+                    <li>To move the selected rules to the Recycle Bin, press the Delete key.</li>
+                    <li>Rename the selected files to end with something other than <code>rule.txt</code>. For example, if you rename <code>acme_rule.txt</code> to <code>acme_rule_IGNORE.txt</code>, then <MadCap:variable name="Var.FlareLint" /> ignores this rule.</li>
+                </ul>
+            </li>
+        </ol>
+    </body>
+</html>

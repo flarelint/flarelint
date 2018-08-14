@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="2" MadCap:lastHeight="1794" MadCap:lastWidth="1518">
+    <head>
+    </head>
+    <body>
+        <h1>When Section</h1>
+        <p>Specifies an XML element in a Flare file to which to apply the rule. A rule file contains at least one <code>when</code> section and can contain many. The <code>when</code> sections must be after the <code>extensions</code> section and before the <code>test</code> sections.</p>
+        <p>After using the <code>extensions</code> section to match a file, <MadCap:variable name="Var.FlareLint" /> then determines if the rule applies to any of the elements in the file. In a matched file, <MadCap:variable name="Var.FlareLint" /> inspects each element in the document,  applying the <code>when</code> sections to find elements.</p>
+        <p>For example, to match paragraph elements:</p><pre xml:space="preserve">when: self p</pre>
+        <p><b>Tip:</b> It is easy to confuse the purpose of the <code>when</code> and <code>test</code> sections. Keep in mind that <MadCap:variable name="Var.FlareLint" /> applies <code>when</code> sections to all elements in a file to find a single element. <MadCap:variable name="Var.FlareLint" /> applies <code>test</code> sections to this single element. In other words, the <code>when</code> sections find an element and the <code>test</code> sections make sure that this element conforms to your rule.</p>
+        <p>To find list items that contains the variable CompanyName in the Acme variable set:</p><pre xml:space="preserve">when: 
+  self li and child-variable Acme.CompanyName</pre>
+        <p>A rule file with a single <code>when</code> section finds only one kind of element. You can find many kinds of elements by adding more <code>when</code> sections. To determine if the rule applies to an element, <MadCap:variable name="Var.FlareLint" /> applies each <code>when</code> section in the order they appear in the rule file. <MadCap:variable name="Var.FlareLint" /> continues trying <code>when</code> sections until the first <code>when</code> section that is true. This section determines the element that <MadCap:variable name="Var.FlareLint" /> uses for the <code>test</code> sections. If no <code>when</code> sections are true, then the rule is not applicable, so <MadCap:variable name="Var.FlareLint" /> ignores the rule.</p>
+        <p>For example, to match table cells that are either in French or English:</p><pre xml:space="preserve">when:&#160;self-language td fr<br />when: self-language td en</pre>
+        <p>To help users who read reports, you should create <code>when</code> sections that find the rule-breaking element as precisely as possible.  For example, say your style guide requires that unordered lists (<code>ul</code>) must not contain <code>p</code> elements. This situation often happens when copying and pasting text in the Flare XML editor.</p>
+        <p>The following <code>when</code> and <code>test</code> find <code>ul</code> elements and check that they does not contain <code>p</code> elements:</p><pre xml:space="preserve">when:&#160;self ul<br />test: not child p</pre>
+        <p>If <MadCap:variable name="Var.FlareLint" /> finds a <code>ul</code> element that breaks this rule, the <MadCap:variable name="Var.FlareLint" /> report will identify the <code>ul</code> element. But in a big unordered list, the offending <code>p</code> element might be difficult for your users to find and fix in the Flare XML editor.</p>
+        <p>The following gives the same result, but lets <MadCap:variable name="Var.FlareLint" /> identify the offending <code>p</code> element precisely in the report:</p><pre xml:space="preserve">when:&#160;self p<br />test: not parent ul</pre>
+        <p>Sometimes it is more convenient for the <code>when</code> section to also serve as the test. In this case, just specify <code>fail</code> as a test condition, which, well, always fails.</p>
+        <p>For example, if your style guide does not allow the bold, underline, and italic elements, then you would write <code>when</code> sections for the <code>b</code>, <code>u</code>, and <code>i</code> elements. </p><pre xml:space="preserve">when:&#160;self b<br />when: self i<br />when:&#160;self u</pre>
+        <p> Since these <code>when</code> sections already find an offending element, there is no need for a further test; the offending element has already been found. The rest of the rule would then be the following:</p><pre xml:space="preserve">test: fail<br /><br />message: Hard-coded styles not allowed.</pre>
+    </body>
+</html>

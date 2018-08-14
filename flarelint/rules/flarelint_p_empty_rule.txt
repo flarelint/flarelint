@@ -1,0 +1,18 @@
+
+rule: error
+
+extensions: htm html flsnp
+
+when: self-empty p
+
+test: ancestor td
+test: descendant img
+test: descendant iframe
+test: descendant MadCap:snippetText
+test: descendant MadCap:variable
+
+message:
+Empty paragraph. A `p` element must not be empty. To fix, delete it.
+
+*Note:* Empty paragraphs are permitted in `td` elements.
+

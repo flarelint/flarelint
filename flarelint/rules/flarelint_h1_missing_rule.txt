@@ -1,0 +1,13 @@
+rule: error
+
+extensions: html htm
+
+when: self body
+
+test: child h1
+
+message:
+
+Missing title (`h1`). To fix: add a title to the beginning of the
+topic body.
+

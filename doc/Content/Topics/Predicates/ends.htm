@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="647" MadCap:lastWidth="1099">
+    <head>
+    </head>
+    <body>
+        <h1><em>pov</em>-ends</h1><pre xml:space="preserve"><em>pov</em>-ends <em>tag</em> "<em>text</em>"
+<em>pov</em>-ends * "<em>text</em>"</pre>
+        <p>True when an element, including the content of its descendant elements, ends with <em>text</em>. False when <em>text</em> does not appear at the end of an element and its descendants. </p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/wildcard.flsnp" />
+        <MadCap:snippetBlock src="../../Resources/Snippets/PointsOfView.flsnp" />
+        <p>This predicate is case sensitive. It ignores following white space and line breaks.</p>
+        <p>For example:</p><pre xml:space="preserve">&lt;p&gt;
+  &lt;i&gt;Lord Ronald&lt;/i&gt; ran madly off in all &lt;b&gt;directions&lt;/b&gt;!
+&lt;/p&gt;</pre>
+        <p>For the <code>p</code> element, the following give true:</p><pre xml:space="preserve">self-ends p "all directions!"
+child-ends b "directions"</pre>
+    </body>
+</html>

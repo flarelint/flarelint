@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="605" MadCap:lastWidth="1394">
+    <head>
+    </head>
+    <body>
+        <h1>condition</h1><pre xml:space="preserve">condition <em>set</em>.<em>name</em>
+</pre>
+        <p>Is true when an element has a condition of <em>set</em>.<em>name</em> or is in an element that has this condition, false otherwise.</p>
+        <p>The condition must use the format of condition set, period (.), then a name defined in the condition set. </p>
+        <p>For example:</p><pre xml:space="preserve">&lt;h1&gt;New Brunswick Bucket List&lt;/h1&gt;
+&lt;p&gt;Never negate the boundless beauty of these places:&lt;/p&gt;
+&lt;ul MadCap:conditions="Acme.ScreenOnly"&gt;
+  &lt;li&gt;Edmunston&lt;/li&gt;
+  &lt;li&gt;Saint John&lt;/li&gt;
+  &lt;li&gt;Kouchibouguac&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+        <p>For the <code>ul</code> element and the <code>li</code> elements, the following predicate gives true:</p><pre xml:space="preserve">condition Acme.ScreenOnly</pre>
+    </body>
+</html>

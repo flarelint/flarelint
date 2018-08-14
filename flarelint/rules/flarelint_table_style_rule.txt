@@ -1,0 +1,12 @@
+rule: error
+
+extensions: htm html flsnp
+
+when: self table
+
+test: self-attribute-contains table style "mc-table-style"
+
+message:
+
+Missing style for a table.  What kind of table is this?  To fix,
+right-click the table, choose a style from Table Style.

@@ -78,7 +78,7 @@ def main(args):
             print(resources.HELP)
             sys.exit(0)
         elif a.startswith('-') or projectpath:
-            print(resources.BAD_ARG)
+            print(resources.ERROR_BAD_ARG)
             sys.exit(1)
         else:
             projectpath = a
@@ -87,7 +87,7 @@ def main(args):
         projectpath = _defaultproject()
         
     if projectpath is None:
-        print(resources.MISSING_PROJECT)
+        print(resources.ERROR_MISSING_PROJECT)
         sys.exit(1)
 
     projectdir, projectfile = os.path.split(projectpath)

@@ -1,0 +1,19 @@
+
+rule: error
+
+extensions: htm html flsnp
+
+when: self img
+
+test: self-attribute-ends img src ".png"
+test: self-attribute-ends img src ".PNG"
+test: self-attribute-ends img src ".jpg"
+test: self-attribute-ends img src ".JPG"
+test: self-attribute-ends img src ".jpeg"
+test: self-attribute-ends img src ".JPEG"
+
+message:
+
+Unsupported graphics format. To fix, convert this file to an accepted
+format (png or jpg), revise the link to the new graphics file, and
+delete the unsupported file.

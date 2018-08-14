@@ -1,0 +1,17 @@
+rule: error
+
+extensions: fltar
+
+when: self-attribute-equals CatapultTarget Type "PDF"
+
+test: self-attribute-equals CatapultTarget PatchHeadingLevels "true"
+
+message:
+
+Use TOC Depth for Heading Levels is not enabled in the Advanced
+tab. We use this feature to make sure that topics in the PDF follow
+the hierarchy specified in the Flare TOC. To fix, enable Use TOC Depth
+for Heading Levels in the Advanced tab.
+
+*Note:* This rule applies only to PDF targets.
+

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="902" MadCap:lastWidth="1099">
+    <head>
+    </head>
+    <body>
+        <h1>Quoting Text</h1>
+        <p>Some predicates require you to specify some text for an element’s content or an attribute’s value.</p>
+        <p>You can specify text by starting and ending it with straight quotation marks. For example the following predicate gives true for a <code>p</code> element ends with <code>The End</code>:</p><pre xml:space="preserve">self-ends p "The End."</pre>
+        <p>You must quote text on one line; <MadCap:variable name="Var.FlareLint" /> does not accept quoted text that contains line endings. However, you can specify a line-ending with the characters “\n”. </p>
+        <p>For example, the following is incorrect:</p><pre xml:space="preserve">"First line.
+Second line."</pre>
+        <p>Instead, you would type the following:</p><pre xml:space="preserve">"First line.\nSecond line."</pre>
+        <p>To quote a straight quotation mark (“"”)in, precede it with a backslash (“\"”).</p>
+        <p>For example, quote the following text:</p><pre xml:space="preserve">"Ideally, I want to define the ideal." -- Plato</pre>
+        <p>You would type the following in a <MadCap:variable name="Var.FlareLint" /> rule file:</p><pre xml:space="preserve">"\"Ideally, I want to define the ideal.\" -- Plato"</pre>
+        <p>To specify a backslash (“\”), type it twice. </p>
+        <p>For example, to specify a Windows file path, you type backslash characters twice. To specify C:\Users\tinatwriter you would type the following:</p><pre>"C:\\Users\\tinatwriter"</pre>
+    </body>
+</html>

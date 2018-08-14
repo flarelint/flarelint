@@ -48,6 +48,7 @@ import xml.etree.ElementTree as ET
 import datetime
 import html
 import pathlib
+import pprint
 
 from flarelint import rule
 from flarelint import flarenode
@@ -81,7 +82,10 @@ def _describecontext(node):
 def _formatmessage(msg):
     formats = [
         (r'*', 'b'),
-        (r'`', 'code')]
+        (r'`', 'code'),
+        (r'_', 'i')]
+
+    msg = html.escape(msg)
 
     for char, tag in formats:
         formatRegex = "(?<!\\\\)[{0}]([^{0}]+)(?<!\\\\)[{0}]".format(char)
@@ -92,30 +96,50 @@ def _formatmessage(msg):
 
     return msg
 
-def _formatresults(results):
-
-    groupedFiles = {}
+def _groupByFile(results):
+    g = {}
     for r in results:
-        if groupedFiles.get(r.path, None) is None:
-            groupedFiles[r.path] = []
-        groupedFiles[r.path].append(r)
+        if g.get(r.path, None) is None:
+            g[r.path] = []
+        g[r.path].append(r)
 
-    resultsText = '\n'.join(string.Template(resources.FILE_TEMPLATE).substitute(
-        fileuri=html.escape(pathlib.Path(f).as_uri()),
-        fullpath=html.escape(f),
-        results='\n'.join(string.Template(resources.RESULT_TEMPLATE).substitute(
-            level=r.level,
-            tag=r.node.name(),
-            context=_describecontext(r.node),
-            message=_formatmessage(r.message)) for r in groupedFiles[f])
-    ) for f in sorted(groupedFiles, key=str.lower))
+    return g
 
-    return resultsText
+def _formatresult(result):
+
+    nodeclasses = ".".join(result.node.attribute('class').split())
+    flarestyle = '{0}{1}'.format(
+        result.node.name(),
+        '.' + nodeclasses if nodeclasses else '')
+    
+    return string.Template(resources.TEMPLATE_RESULT).substitute(
+        source=html.escape(os.path.basename(result.source)),
+        level=result.level,
+        tag=flarestyle,
+        context=_describecontext(result.node),
+        message=_formatmessage(result.message))
+
+def _format_file_results(file, fileresults, projectpath):
+    fp = pathlib.Path(file)
+    pp = pathlib.Path(projectpath)
+    
+    return string.Template(resources.TEMPLATE_FILE).substitute(
+        fileuri=fp.as_uri(),
+        path=fp.relative_to(pp.parent),
+        results='\n'.join(_formatresult(r) for r in fileresults)
+    )
+def _format_all_results(results, projectpath):
+
+    grouped = _groupByFile(results)
+    
+    return '\n'.join(
+        _format_file_results(
+            f, grouped[f], projectpath) for f in sorted(grouped, key=str.lower))
 
 def _applyrules(rules, path, node, stats):
     allResults = []
     for r in rules:
-        result = r.apply(path, node)
+        result = rule.apply(r, path, node)
         if result:
             stats[result.level] += 1
             allResults.append(result)
@@ -128,7 +152,7 @@ def _apply_rules_to_file(path, filename, projectlang, stats, verbose=False):
     rules = rule.getrules(extension)
     if rules is None:
         return []
-
+    
     fullPath = os.path.join(path, filename)
     if verbose:
         print(' ', fullPath)
@@ -142,9 +166,9 @@ def _apply_rules_to_file(path, filename, projectlang, stats, verbose=False):
     except ET.ParseError:
         badXML = rule.Result(
             fullPath,
-            resources.ERROR_LEVEL,
+            resources.LEVEL_ERROR,
             flarenode.EMPTY,
-            resources.PARSE_ERROR)
+            resources.ERROR_PARSE)
         results = [badXML]
         stats[badXML.level] += 1
 
@@ -165,34 +189,39 @@ def build(projectpath, reportpath, verbose=False):
 
     projectDir = os.path.dirname(projectpath)
 
-    statistics = {resources.ERROR_LEVEL : 0,
-                  resources.WARNING_LEVEL : 0}
+    statistics = {resources.LEVEL_ERROR : 0,
+                  resources.LEVEL_WARNING : 0}
 
     print(resources.PROGRESS_SCANNING)
     lang = flarenode.get_project_lang(projectpath)
-
     issues = []
     for subDir in ['Content', 'Project']:
         path = os.path.join(projectDir, subDir)
         issues.extend(_scandirectory(path, lang, statistics, verbose))
+    if verbose:
+        print('')
 
     print(resources.PROGRESS_FORMATTING)
-
-    reportText = string.Template(resources.REPORT_TEMPLATE).substitute(
-        errorLabel=resources.ERROR_LEVEL,
-        warningLabel=resources.WARNING_LEVEL,
+    reportText = string.Template(resources.TEMPLATE_REPORT).substitute(
+        errorLabel=resources.LEVEL_ERROR,
+        warningLabel=resources.LEVEL_WARNING,
         project=projectpath,
         date=datetime.datetime.now().strftime(resources.DATE_FORMAT),
         user=os.environ['USERNAME'],
-        errorCount=str(statistics[resources.ERROR_LEVEL]),
-        warningCount=str(statistics[resources.WARNING_LEVEL]),
-        results=_formatresults(issues) if issues else resources.REPORT_NO_ISSUES)
+        errorCount=str(statistics[resources.LEVEL_ERROR]),
+        warningCount=str(statistics[resources.LEVEL_WARNING]),
+        results=_format_all_results(issues, projectpath) if issues else resources.REPORT_NO_ISSUES)
 
     print(resources.PROGRESS_TALLY.format(
-        statistics[resources.ERROR_LEVEL],
-        statistics[resources.WARNING_LEVEL]))
+        statistics[resources.LEVEL_ERROR],
+        statistics[resources.LEVEL_WARNING]))
 
-    report = ET.fromstring(reportText)
+    try:
+        report = ET.fromstring(reportText)
+    except ET.ParseError:
+        print(resources.ERROR_REPORT)
+        sys.exit(1)
+
     with open(reportpath, 'bw') as f:
         f.write(b'<!DOCTYPE html>\n')
         ET.ElementTree(report).write(f, encoding="UTF-8", method="xml")

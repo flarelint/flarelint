@@ -1,0 +1,17 @@
+
+rule: error
+
+extensions: htm html flsnp
+
+when: self b
+when: self u
+when: self i
+
+test: fail
+
+message:
+
+Hard-coded formatting.  What do you mean? To fix, use semantic
+stylesheet classes instead.
+
+

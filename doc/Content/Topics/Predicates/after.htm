@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="1235" MadCap:lastWidth="1394">
+    <head>
+    </head>
+    <body>
+        <h1>after</h1><pre xml:space="preserve">
+after <em>tag</em>
+after *
+</pre>
+        <p>Is true when an element has a following sibling element with tag <em>tag</em>, false otherwise. </p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/wildcard.flsnp" />
+        <p>This predicate can be used as a point of view.</p>
+        <p>For example:</p><pre xml:space="preserve">&lt;h1&gt;New Brunswick Bucket List&lt;/h1&gt;
+&lt;p&gt;Never negate the boundless beauty of these places:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Edmunston&lt;/li&gt;
+  &lt;li&gt;Saint John&lt;/li&gt;
+  &lt;li&gt;Kouchibouguac&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+        <p>For the <code>h1</code> element, the following predicates give true:</p><pre>after ul<br />after p</pre>
+        <p>When used as a point of view, <code>after</code> applies to the first sibling named <em>tag</em>. </p>
+        <p>For example:</p><pre>&lt;ul&gt;
+  &lt;li&gt;Edmunston&lt;/li&gt;
+  &lt;li&gt;Saint John&lt;/li&gt;
+  &lt;li&gt;Kouchibouguac&lt;/li&gt;
+&lt;/ul&gt;</pre>
+        <p> For the <code>li</code> element containing “Edmunston”, the following gives true:</p><pre>after-contains li "Saint"</pre>
+        <p>But the following gives false:</p><pre xml:space="preserve">after-contains li "Kouchi"</pre>
+        <p>Even though there is an <code>li</code> element after “Edmunston” that contains “Kouchi”, the latter is not the first <code>li</code> element after “Edmunston”.</p>
+    </body>
+</html>

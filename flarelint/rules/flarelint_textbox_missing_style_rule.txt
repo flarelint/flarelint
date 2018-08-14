@@ -1,0 +1,13 @@
+rule: error
+
+extensions: htm html flsnp
+
+when: self div
+
+test: not self-style div
+
+message:
+
+Text box with missing style class.  What kind of text box is this?  To
+fix, apply a style in Flare.
+
