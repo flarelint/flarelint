@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="2"
+  Comment=""
+  Type="WebHelp2"
+  Destinations=""
+  GlossaryTermConversion="marked"
+  ExcludeUnreferencedContent="true"
+  UseCustomTopicFileExtension="true"
+  CustomTopicFileExtension="html"
+  ReplaceSpacesWithUnderscores="true"
+  OutputFile="index.html"
+  TargetLanguage="en"
+  UseLocalBuildSettings="true"
+  IgnoredCompilerWarnings="20032,20033,20034,20035,20037,20038,20039,20040,20041"
+  Skin="/Project/Skins/HTML5.flskn"
+  MasterPage="/Content/Resources/MasterPages/Master.flmsp">
+  <PrintedOutput
+    CollapseMargins="true" />
+  <Variables />
+  <Destinations>
+    <Destination
+      Link="/Project/Destinations/installer.fldes"
+      Publish="true" />
+  </Destinations>
+</CatapultTarget>

@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../Resources/TableStyles/Standard.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1>Extensions Section</h1>
+        <p>Specifies the types of files to which to apply the rule. You specify types of files with their file name extensions, without the initial dot (“.”). You must specify at least one type of file. To specify more than one type of file, separate file name extensions with spaces and line breaks. A rule file must contain one extensions section. This section must be after the rule section and before the when sections.</p>
+        <p>Remember that <MadCap:variable name="Var.FlareLint" /> applies rules any XML and XML-based files in a Flare project. <MadCap:variable name="Var.FlareLint" /> does not scan binary files or other text files. You can see a file’s extension in Windows Explorer. The following table lists the most common types of files in a Flare project that you would scan:</p>
+        <table style="width: 100%; caption-side: top; mc-table-style: url('../Resources/TableStyles/Standard.css'); margin-left: 0; margin-right: auto;" class="TableStyle-Master" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column1" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p>To specify this type of file in a Flare project:</p>
+                    </th>
+                    <th class="HeadD-Column1-Header1">
+                        <p>Use these file name extensions in the extensions section</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>graphic file created with MadCap Capture</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>props</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>import</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>flimp</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>master page</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>flmsp</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>page layout</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>flpgl</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>relationship table</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>flrtb</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>skin</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>flskn</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>snippet</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>flsnp</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>target</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>fltar</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>TOC</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>fltoc</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p>topic</p>
+                    </td>
+                    <td class="BodyD-Column1-Body1">
+                        <p>htm html</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p>variable set</p>
+                    </td>
+                    <td class="BodyA-Column1-Body1">
+                        <p>flvar</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>An example of an <code>extensions</code> section to scan topic files:</p><pre xml:space="preserve">extensions: htm html</pre>
+        <p>To scan both topics and snippets:</p><pre xml:space="preserve">extensions: 
+htm
+html
+flsnp</pre>
+        <p>For TOCs:</p><pre xml:space="preserve">extensions:
+  fltoc</pre>
+    </body>
+</html>

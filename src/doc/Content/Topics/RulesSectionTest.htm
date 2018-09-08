@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>Test Section</h1>
+        <p>Verifies that the element that was matched by a <code>when</code> section meets the rule’s criteria. A rule file contains at least one <code>test</code> section and can contain many. The <code>test</code> sections must be after the <code>when</code> sections and before the <code>message</code> section.</p>
+        <p>After succeeding in matching a file with the <code>extensions</code> section, then finding an element in the file with a <code>when</code> section, <MadCap:variable name="Var.FlareLint" /> then checks to see if the element meets the criteria specified in the <code>test</code> sections. </p>
+        <p>For example, to match paragraph elements in list items and test that they end with a period (“.”):</p><pre xml:space="preserve">when: self p and parent li
+test: self-ends p "."</pre>
+        <p><MadCap:variable name="Var.FlareLint" /> applies each <code>test</code> section in the order it appears in the rule file. <MadCap:variable name="Var.FlareLint" /> stops at the first <code>test</code> section that is true. If the element fails all the <code>test</code> sections in a rule, then the element has broken the rule and <MadCap:variable name="Var.FlareLint" /> inserts the rule's message in its report.</p>
+        <p>For example, your team does not allow empty paragraphs. The <code>self-empty</code> predicate gives true for an element that contains no text. However, your team agrees that an empty paragraph in a table cell is acceptable, and that a paragraph can contain elements that represent content, such as images, snippets, and variables. To test that all paragraphs are appropriately and completely empty:</p><pre xml:space="preserve">when: self-empty p
+
+test: ancestor td
+test: descendant img
+test: descendant MadCap:snippetText
+test: descendant MadCap:variable</pre>
+    </body>
+</html>

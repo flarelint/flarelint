@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultVariableSet>
+  <Variable
+    Name="FlareLint"
+    Comment=""
+    Definition="Some text">FlareLint</Variable>
+  <Variable
+    Name="Version"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="2.0beta">2.0beta</Variable>
+  <Variable
+    Name="PersonalRuleFolder"
+    Comment=""
+    Definition="Some text">%APPDATA%\FlareLint</Variable>
+  <Variable
+    Name="Installer"
+    Comment=""
+    EvaluatedDefinition="FlareLint_2-0b.zip">FlareLint_2-0b.zip</Variable>
+</CatapultVariableSet>
