@@ -50,8 +50,8 @@ FLARE_DEST_XML = '''<?xml version="1.0" encoding="utf-8"?>
 
 FLARE_CMD = 'C:\\Program Files\\MadCap Software\\MadCap Flare 14\\Flare.app\\madbuild.exe'
 STAGE_DIR = "staging"
-ARCHIVE_NAME = "{0}-{1}".format(setup.setupargs["name"].replace(' ', ''),
-                                setup.setupargs["version"].replace('.', '-'))
+ARCHIVE_NAME = "{0}_{1}".format(setup.setupargs["name"].replace(' ', ''),
+                                setup.setupargs["version"])
 
 def normalize_path(path):
     return path.replace('/', '\\')
@@ -94,19 +94,14 @@ def xcopy(src, dst):
 def rename(src, dst):
     log("rename " + src + " " + dst)
     os.rename(src, dst)
-        
+
 def cd(path):
     log("cd " + path)
     os.chdir(path)
-        
+
 def zip(name):
     log("zip " + name + ".zip")
     shutil.make_archive(base_name = name, format = "zip")
-        
-def shellcmd(cmd):
-    log(cmd)
-    p = subprocess.Popen(args = cmd, shell = True)
-    p.wait()
 
 def preflight():
     log("Task: Getting ducks in a row")
@@ -124,10 +119,12 @@ def preflight():
     rmdir("build")
     delete("MANIFEST")
     delete(ARCHIVE_NAME + '.zip')
-        
+
 def builddoc():
     log("Task: Building doc")
-    shellcmd('"{0}" -project doc\\userguide.flprj -target HTML5.fltar'.format(FLARE_CMD))
+    cmd = '"{0}" -project doc\\userguide.flprj -target HTML5.fltar'.format(FLARE_CMD)
+    log(cmd)
+    subprocess.check_call(cmd)
 
 def buildpkg():
     log("Task: Building Python package installer")
@@ -154,6 +151,7 @@ def assemble():
     copy("doc/*.flprj", os.path.join(STAGE_DIR, "src/doc"))
     xcopy(os.path.join("doc/Content"), os.path.join(STAGE_DIR, "src/doc/Content"))
     xcopy(os.path.join("doc/Project"), os.path.join(STAGE_DIR, "src/doc/Project"))
+    rmdir(os.path.join(STAGE_DIR, "src/doc/Project/Users"))
 
 def archive():
     log("Task: Creating the ZIP")
@@ -161,13 +159,13 @@ def archive():
     cd(STAGE_DIR)
     zip(os.path.join(pwd, ARCHIVE_NAME))
     cd(pwd)
-    
+
 def main():
     preflight()
     builddoc()
     buildpkg()
     assemble()
     archive()
-    
+
 if __name__ == '__main__':
     main()
