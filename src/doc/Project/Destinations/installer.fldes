@@ -5,7 +5,7 @@
   Host=""
   User="MyAccountId"
   Password=""
-  Directory="c:\Users\marc.paquette\Desktop\FlareLint_2-0\staging\doc"
+  Directory="c:\Users\marc.paquette\Desktop\flarelint2.0\src\staging\doc"
   Port=""
   ViewUrl=""
   Type="file"

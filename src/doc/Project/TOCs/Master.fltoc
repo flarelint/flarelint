@@ -70,7 +70,7 @@
       Link="/Content/Topics/RulesSectionMessage.htm" />
     <TocEntry
       Title="[%=System.LinkedTitle%]"
-      Link="/Content/Topics/RulesConditionsPredicates.htm"></TocEntry>
+      Link="/Content/Topics/RulesExspressionsPredicates.htm"></TocEntry>
     <TocEntry
       Title="[%=System.LinkedTitle%]"
       Link="/Content/Topics/RulesWildcard.htm" />
