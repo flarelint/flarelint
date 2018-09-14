@@ -1,7 +1,7 @@
 Welcome to FlareLint!
 
 Copyright 2016-2017 Intelerad Medical Systems Incorporated.
-Portiongs copyright 2018 Marc Paquette
+Portions copyright 2018 Marc Paquette
 
 Use FlareLint to scan a MadCap Flare project for adherence to your
 style rules then display a report in your preferred web browser. It's
