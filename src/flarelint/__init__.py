@@ -24,13 +24,17 @@
 
 r"""Welcome to FlareLint!
 
-FlareLint scans a MadCap Flare project for adherence to your style
-rules then displays a report in your preferred web browser. It's like
-picking the lint off your sweater, only more fun.
+FlareLint scans your MadCap Flare project for conformance to your
+rules then generates a report. This report lists files in your project
+that break the rules.  For example, FlareLint reports when a topic
+does not start with an h1 element.
 
 You can use FlareLint to make production of your MadCap Flare output
 faster and less tedious.  Use FlareLint to produce more consistent,
 higher-quality content for your end users.
+
+For more information, see doc\index.html
+
 """
 
 import webbrowser
