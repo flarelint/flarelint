@@ -52,6 +52,9 @@
     Link="/Content/Topics/RulesCreating.htm">
     <TocEntry
       Title="[%=System.LinkedTitle%]"
+      Link="/Content/Topics/FollowingBreaking.htm" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
       Link="/Content/Topics/RulesSectionComment.htm" />
     <TocEntry
       Title="[%=System.LinkedTitle%]"
@@ -70,7 +73,7 @@
       Link="/Content/Topics/RulesSectionMessage.htm" />
     <TocEntry
       Title="[%=System.LinkedTitle%]"
-      Link="/Content/Topics/RulesExspressionsPredicates.htm"></TocEntry>
+      Link="/Content/Topics/RulesExpressionsPredicates.htm"></TocEntry>
     <TocEntry
       Title="[%=System.LinkedTitle%]"
       Link="/Content/Topics/RulesWildcard.htm" />
@@ -140,7 +143,13 @@
       Link="/Content/Topics/Predicates/ends.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
     <TocEntry
       Title="[%=System.LinkedTitle%]"
-      Link="/Content/Topics/Predicates/position.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+      Link="/Content/Topics/Predicates/first.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Topics/Predicates/last.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd"></TocEntry>
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Topics/Predicates/position.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd"></TocEntry>
     <TocEntry
       Title="[%=System.LinkedTitle%]"
       Link="/Content/Topics/Predicates/padding.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />

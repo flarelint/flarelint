@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1><em>pov</em>-first</h1><pre xml:space="preserve"><em>pov</em>-first <em>tag</em>
+<em>pov</em>-first *</pre>
+        <p>True when an element <em>tag</em> is the first child among its siblings. The sibling elements do not have to be the same. </p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/wildcard.flsnp" />
+        <MadCap:snippetBlock src="../../Resources/Snippets/PointsOfView.flsnp" />
+        <p>This predicate is identical to this: </p><pre xml:space="preserve"><em>pov</em>-position <em>tag </em>0
+<em>pov</em>-position * 0</pre>
+        <p>This predicate ignores descendants of children. For example:</p><pre xml:space="preserve">&lt;body&gt;
+  &lt;h1&gt;Cities with Airport Train Stations&lt;/h1&gt;
+  &lt;p&gt;The best way to get to an airport is by train:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Barcelona&lt;/li&gt;
+    &lt;li&gt;Paris&lt;/li&gt;
+    &lt;li&gt;New York&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+</pre>
+        <p>For the <code>body</code> element, the following gives true:</p><pre xml:space="preserve">child-first h1</pre>
+        <p>For the <code>p</code> element, the following gives true:</p><pre xml:space="preserve">before-first h1</pre>
+        <p>For the <code>li</code> element containing “Barcelona”, the following gives true:</p><pre xml:space="preserve">self-first li</pre>
+        <p>For the <code>li</code> element containing “Paris”, the following gives false:</p><pre xml:space="preserve">self-first li</pre>
+    </body>
+</html>

@@ -1,4 +1,3 @@
-
 rule: error
 
 extensions: htm html flsnp

@@ -98,18 +98,21 @@ def _applyterms(terms, node):
 
     return True
     
-def _applyconditions(conditions, node):
-    """Applies a bunch of conditions, stopping at the first one that
-    returns True. If all conditions return False, then return False."""
+def _applyexpressions(expressions, node):
+    """Applies a bunch of FlareLint rule expressions, stopping at the
+    first one that returns True. If all expressions return False, then
+    return False.
 
-    for c in conditions:
+    """
+
+    for c in expressions:
         if _applyterms(c, node):
             return True
 
     return False
 
 def apply(rule, path, node):
-    if _applyconditions(rule['when'], node) and not _applyconditions(rule['test'], node):
+    if _applyexpressions(rule['when'], node) and not _applyexpressions(rule['test'], node):
         return Result(path, rule['source'], rule['rule'], node, rule['message'])
     
     return None

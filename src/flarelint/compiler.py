@@ -52,7 +52,7 @@ _TOK_REGEX = '|'.join('(?P<%s>%s)' % pair for pair in _TOKEN_SPEC)
 # Inspired by Jack W. Crenshaw.
 
 def _tokenreader(rulefile):
-    with open(rulefile, 'r', encoding="utf-8") as f:
+    with open(rulefile, 'r', encoding="utf-8-sig") as f:
         linenum = 0
         for line in f:
             linenum += 1
@@ -147,12 +147,12 @@ def _compileextensions(tok):
 def _compilewhens(tok):
     tok.skipwhite()
     _expectsection(tok, 'when:')
-    return _compile_condition_section(tok, 'when:')
+    return _compile_expression_section(tok, 'when:')
         
 def _compiletests(tok):
     tok.skipwhite()
     _expectsection(tok, 'test:')
-    return _compile_condition_section(tok, 'test:')
+    return _compile_expression_section(tok, 'test:')
 
 def _compilemessage(tok):
     tok.skipwhite()
@@ -211,6 +211,9 @@ def _compile_predicate_pov(tok, povmethod, predicate):
         arg1 = _compiletag(tok, predicate)
         arg2 = _compilenumber(tok, predicate)
         p = lambda n, m=povmethod, a1=arg1, a2=arg2: m(n, a1).indexof() == a2
+    elif subpred == 'first':
+        arg1 = _compiletag(tok, predicate)
+        p = lambda n, m=povmethod, a1=arg1: m(n, a1).indexof() == 0
     elif subpred == 'last':
         arg1 = _compiletag(tok, predicate)
         p = lambda n, m=povmethod, a1=arg1: m(n, a1).nextsibling('*') == flarenode.EMPTY
@@ -313,7 +316,7 @@ def _compilepredicate(tok):
 
     return p
 
-def _compilecondition(tok):
+def _compileexpression(tok):
     p = [_compileterm(tok)]
     tok.skipwhite()
     while tok.value == 'and':
@@ -323,14 +326,14 @@ def _compilecondition(tok):
 
     return p
 
-def _compile_condition_section(tok, sectname):
+def _compile_expression_section(tok, sectname):
     tok.skipwhite()
     sections = []
     while tok.kind == 'SECTION' and tok.value == sectname:
         tok.next()
         tok.skipwhite()
         while tok.kind == 'NAME':
-            sections.append(_compilecondition(tok))
+            sections.append(_compileexpression(tok))
 
     return sections
 

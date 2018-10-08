@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ObjectList>
-    <Object Value="Var.Installer" />
     <Object Value="Var.Version" />
+    <Object Value="Var.FlareLint" />
+    <Object Value="Var.Installer" />
 </ObjectList>

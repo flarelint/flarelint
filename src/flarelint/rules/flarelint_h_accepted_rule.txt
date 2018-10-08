@@ -1,6 +1,6 @@
 comment:
 
-Note that the match conditions are also the test, so we make the test
+Note that the when expressions are also the test, so we make the test
 always fail.
 
 rule: error

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="996" MadCap:lastWidth="1329">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
     <head>
         <link href="../Resources/TableStyles/Standard.css" rel="stylesheet" MadCap:stylesheetType="table" />
     </head>
@@ -18,12 +18,16 @@
             <tbody>
                 <tr class="Body-Body1">
                     <td class="BodyE-Column1-Body1">
-                        <p>1.3</p>
+                        <p><MadCap:variable name="Var.Version" />
+                        </p>
                     </td>
                     <td class="BodyD-Column1-Body1">
-                        <p>Completely new way for defining rules. There is no need for you to learn Python programming to customize rules. You can create and modify rules using a simple, straightforward language. For more information, see <MadCap:xref href="RulesCreating.htm">Creating and Customizing Rules</MadCap:xref>.</p>
-                        <p>You can see the file name of the rule from which a message was issued by hovering over the word “error” or “warning” in a report. This is useful when developing and troubleshooting rules.</p>
-                        <p><code>FlareLint.bat</code> correctly accepts paths with space characters.</p>
+                        <p>Feature: Completely new way for defining rules. There is no need for you to learn Python programming to customize rules. You can create and modify rules using a simple, straightforward language. For more information, see <MadCap:xref href="RulesCreating.htm">Creating and Customizing Rules</MadCap:xref>.</p>
+                        <p>Feature: You can see the file name of the rule from which a message was issued by hovering over the word “error” or “warning” in a report. This is useful when developing and troubleshooting rules.</p>
+                        <p>Fix: <code>FlareLint.bat</code> correctly accepts paths with space characters.</p>
+                        <p>Limitation: in Microsoft Windows 10, you can’t drag and drop Flare project files onto the <code>FlareLint.bat</code>. Instead, copy <code>FlareLint.bat</code> into each of your Flare project folders. For more information, see <MadCap:xref href="Installing.htm">Installing</MadCap:xref> and <MadCap:xref href="Using.htm">Using</MadCap:xref>.</p>
+                        <p>Feature: New predicate: <MadCap:xref href="Predicates/first.htm">pov-first</MadCap:xref>.</p>
+                        <p>Fix: <MadCap:variable name="Var.FlareLint" /> loads rules that you created or edited in Microsoft Notepad. Notepad quietly inserts an invisible Byte order mark (BOM) character to the beginning of text files. <MadCap:variable name="Var.FlareLint" /> ignores the BOM instead of reporting an error in the rule file.</p>
                     </td>
                 </tr>
                 <tr class="Body-Body1">

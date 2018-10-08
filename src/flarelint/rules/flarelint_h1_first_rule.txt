@@ -4,7 +4,7 @@ extensions: htm html
 
 when: self h1 and not before h1
 
-test: self-position h1 0
+test: self-first h1
 
 message:
 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="615" MadCap:lastWidth="1099">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
     <head>
     </head>
     <body>
@@ -8,10 +8,13 @@
         <p>True when an element, including the content of its descendant elements, contains <em>text</em>. False when <em>text</em> does not appear in an element and its descendants. </p>
         <MadCap:snippetBlock src="../../Resources/Snippets/wildcard.flsnp" />
         <MadCap:snippetBlock src="../../Resources/Snippets/PointsOfView.flsnp" />
-        <p>This predicate is case sensitive.</p>
+        <p>The <em>text</em> is case sensitive.</p>
         <p>For example:</p><pre>&lt;p&gt;&lt;i&gt;Lord Ronald&lt;/i&gt; ran madly off in all directions.&lt;/p&gt;</pre>
         <p>For the <code>p</code> element, the following predicates give true:</p><pre xml:space="preserve">self-contains p "Ronald ran"
-child-contains i "Ronald"
+child-contains i "Ron"
 self-contains p "madly off in all directions"</pre>
+        <p>For the <code>p</code> element, the following predicates give false:</p><pre xml:space="preserve">self-contains p "RONALD ran"
+child-contains i "ron"
+self-contains p "Madly Off In All Directions"</pre>
     </body>
 </html>

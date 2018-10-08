@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>Following and Breaking Rules</h1>
+        <p><MadCap:variable name="Var.FlareLint" /> applies all its rules to each file in a Flare project. Either the file follows a rule, breaks a rule, or a rule is not applicable to the file. </p>
+        <p><MadCap:variable name="Var.FlareLint" /> adds a rule’s message to the report only when a file breaks the rule.</p>
+        <p>A file <em>follows</em> a rule when it meets all these requirements:</p>
+        <ul>
+            <li>The file’s name has an extension specified in the rule’s <code>extensions</code> section.</li>
+            <li>The file has an element for which the <code>when</code> section is true. If the rule has more than one <code>when</code> section, FlareLint selects the element specified by the first <code>when</code> section that is true in the rule.</li>
+            <li>The <code>test</code> section gives true for the selected element. If a rule has more than one <code>test</code> section, FlareLint stops at the first true <code>test</code> section.</li>
+        </ul>
+        <p>A file <em>breaks</em> a rule, and reports the rule’s message, when it meets all these requirements:</p>
+        <ul>
+            <li>The file’s name has an extension specified in the rule’s <code>extensions</code> section.</li>
+            <li>The file has an element for which the <code>when</code> section is true. If the rule has more than one <code>when</code> section, FlareLint selects the element specified by the first <code>when</code> section that is true.</li>
+            <li>The <code>test</code> section gives false for the selected element. If the rule has more than one <code>test</code> section, all <code>test</code> sections must give false.</li>
+        </ul>
+        <p>A rule is <em>not applicable</em> to a file when it meets at least one of these requirements:</p>
+        <ul>
+            <li>The file’s name has an extension that is not specified in the rule’s <code>extensions</code> section.</li>
+            <li>There are no elements in the file for which the <code>when</code> section is true. If a rule has more than one <code>when</code> section, FlareLint stops when all <code>when</code> sections give false.</li>
+        </ul>
+    </body>
+</html>
